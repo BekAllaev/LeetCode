@@ -3,5 +3,8 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
+  <Folder Name="/Solution Items/">
+    <File Path="README.md" />
+  </Folder>
   <Project Path="LeetCode/LeetCode.vcxproj" Id="89f8f1c2-aae9-47ba-bad5-ba5c3f6f2194" />
 </Solution>

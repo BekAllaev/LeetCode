@@ -1,4 +1,4 @@
-All cheat sheet are taken from here - https://www.youtube.com/watch?v=cpuRbnWEPio&t=3731s
+All cheat sheet are taken from here - https://www.youtube.com/watch?v=cpuRbnWEPio&t=3731s (great resource)
 
 # Two pointers
 ## Moving from both ends
@@ -50,7 +50,7 @@ All cheat sheet are taken from here - https://www.youtube.com/watch?v=cpuRbnWEPi
 **Problem** - *Move all the 0 to the end(to the right part) of the array. Do it in-place*
 <img width="567" height="196" alt="image" src="https://github.com/user-attachments/assets/41658b51-dff7-4ed6-af06-6e615a645d87" />
 
-**Idea** - *Assign **slow** and **fast** pointers to the begining. Move **fast** pointer and submit it with **slow** pointer, then move **slow** pointer one item further*
+**Idea** - *Assign **slow** and **fast** pointers to the begining. Move **fast** pointer and substitute it with **slow** pointer, then move **slow** pointer one item further*
 
 **Pseudocode**  
 <img width="508" height="207" alt="image" src="https://github.com/user-attachments/assets/b71cf24a-de23-49a8-afbb-f49f4e590d71" />

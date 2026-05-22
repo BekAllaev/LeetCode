@@ -131,6 +131,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LongestCommonPrefix.h" />
+    <ClInclude Include="RemoveDuplicateFromSortedArray.h" />
     <ClInclude Include="RomanToInteger.h" />
     <ClInclude Include="ValidParentheses.h" />
   </ItemGroup>

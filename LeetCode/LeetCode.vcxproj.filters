@@ -32,5 +32,8 @@
     <ClInclude Include="ValidParentheses.h">
       <Filter>Source Files\Problems</Filter>
     </ClInclude>
+    <ClInclude Include="RemoveDuplicateFromSortedArray.h">
+      <Filter>Source Files\Problems</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

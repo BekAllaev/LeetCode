@@ -72,8 +72,8 @@ More then one array is given => Pointer per array, else if in-place modification
   
 # Sliding window
 ## Fixed size window
-***Example task***
-**Problem** - *Find maximum of **k** in-row elements*
+***Example task***  
+**Problem** - *Find maximum of **k** in-row elements*  
 <img width="605" height="207" alt="image" src="https://github.com/user-attachments/assets/c18f1771-b68e-4ad2-93d0-f685ba79a4ca" />
 
 **Idea** - *We keep moving the fixed length window until it reaches the end of the array. Meanwhile keep updating sum of the elements after each move. If sum of current window is bigger than the current max, then update current max*

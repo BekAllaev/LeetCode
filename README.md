@@ -71,7 +71,7 @@ All cheat sheet are taken from here - https://www.youtube.com/watch?v=cpuRbnWEPi
 More then one array is given => Pointer per array, else if in-place modifications => Slow & Fast, else => Moving from both ends
   
 # Sliding window
-## Intersecting windows
+## Fixed size window
 ***Example task***
 **Problem** - *Find maximum of **k** in-row elements*
 <img width="605" height="207" alt="image" src="https://github.com/user-attachments/assets/c18f1771-b68e-4ad2-93d0-f685ba79a4ca" />

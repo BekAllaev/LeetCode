@@ -45,7 +45,7 @@ All cheat sheet are taken from here - https://www.youtube.com/watch?v=cpuRbnWEPi
 - Several arrays are given
 - You need to find union/intersection etc. of these two arrays
 
-# Slow & Fast
+## Slow & Fast
 ***Example task***  
 **Problem** - *Move all the 0 to the end(to the right part) of the array. Do it in-place*
 <img width="567" height="196" alt="image" src="https://github.com/user-attachments/assets/41658b51-dff7-4ed6-af06-6e615a645d87" />
@@ -66,3 +66,82 @@ All cheat sheet are taken from here - https://www.youtube.com/watch?v=cpuRbnWEPi
 ***When to use?***
 - "In-place" task is given
 - Original order should be preserved
+
+## Hint
+More then one array is given => Pointer per array, else if in-place modifications => Slow & Fast, else => Moving from both ends
+  
+# Sliding window
+## Intersecting windows
+***Example task***
+**Problem** - *Find maximum of **k** in-row elements*
+<img width="605" height="207" alt="image" src="https://github.com/user-attachments/assets/c18f1771-b68e-4ad2-93d0-f685ba79a4ca" />
+
+**Idea** - *We keep moving the fixed length window until it reaches the end of the array. Meanwhile keep updating sum of the elements after each move. If sum of current window is bigger than the current max, then update current max*
+
+**Pseudocode**  
+<img width="634" height="260" alt="image" src="https://github.com/user-attachments/assets/7ea4fbb0-371b-4194-b762-90122a514ce7" />
+
+**Main ideas**
+- Initialization (for example counting the sum of the first window, as in the task above)
+- Cycle while window doesn't hit the end
+- Loging of moving the window
+
+**Time complexity - O(n)**  
+**Space complexity - O(1)**
+
+***When to use?***
+- Given the fixed size of the window
+- We should work with "in-row" elements
+
+## Non-intersecting windows
+***Example task***  
+**Problem** - *Given the sorted array, we should find sequence of number where next one is bigger than previou one by 1*
+<img width="603" height="185" alt="image" src="https://github.com/user-attachments/assets/b2a6f317-b6a8-48be-8f09-cc247f84d447" />
+
+**Idea** - *We set two pointers to the initial element. Keep moving the right one until we don't find elemnt that is bigger than preivous one by more then 1. When this happens, we write down sequence and move left pointer to the next element(now right and left points to the same element) and we repeat the process until left pointer doesn't leave the array*
+> Here are several windows, that are not intersecting
+
+**Pseudocode**  
+<img width="899" height="549" alt="image" src="https://github.com/user-attachments/assets/29b90a7c-daf3-40b8-bfc8-d9a7eac5fd68" />
+
+**Main ideas**  
+- Initialization of left and right pointers
+- Cycling while left pointer is in the array
+- Keep expanding(moving right pointer) the window. Here we need to find the index of the right end of the window. In other words here should be written logic for finding the boundaries of the window (Main part of the algorithm)
+- Do the required job with window
+- Update left and right pointer to point to the same elemnt of the next window
+
+**Time complexity - O(n), even though we have two cycles here, it is O(n). Indeed it is O(2n) but we can omit constants in O(n). Left and right pointer keep moving forward which means we don't start from the beggining for each run of the upper loop**  
+**Space complexity - O(n), since in worst case we can return array that will contain all the elments from initial array. O(1) is for extra space(for left and right pointers)**
+
+***When to use?***
+- Working with "in-row" groups
+- Groups are not intersecting. One element lives in one group only
+
+## Intersecting windows
+***Example task***  
+**Problem** - *Given array of 1's and 0's, also **k** is given. **K** is allowed number of substitutions of 0's. Find the longest sequence of 1's, taking into account that you can do **K** substituitons*  
+<img width="534" height="156" alt="image" src="https://github.com/user-attachments/assets/1543c545-972b-45be-a4ac-6edd05100998" />
+
+**Idea** - *We set two pointers. Left one to the start element, right one to the -1. Also setting zerosCount variable, which reperesents number of 0's in the window. If next element is 1 then move the right pointer, else move only if zerosCount<**K** and increment zerosCount. Once zerosCount and **K** are equal we write down current maximum length of the window, move the left pointer by one and update zerosCount(when left pointer meets the 0 we decrease zerosCount). Right pointer stops at the end of the array. Keep going until left pointer doesn't leave the array*
+
+**Pseudocode**  
+<img width="895" height="553" alt="image" src="https://github.com/user-attachments/assets/9226bedf-9b95-47ad-9e46-41bb045ee7d2" />
+
+**Main ideas**
+- Initialization. Left to start element. Right to -1
+- Initilaliztion of initial state of the window, for example in the problem above it is zerosCount, which is equal to 0
+- Cycling until left pointer doesn't leave the array
+- Keep expanding(moving right pointer) the window. Here we need to find the index of the right end of the window. In other words here should be written logic for finding the boundaries of the window (Main part of the algorithm)
+- Do the required job with window(in this current case calculate the length of the current window)
+- Narrow the window from the left, don't forget to update the state(in this case decrement zerosCount)
+
+**Time complexity - O(n)**  
+**Space complexity - O(1)**
+
+***When to use?***
+- Working with "in-row" groups
+- Groups are intersecting. One element lives in one group only
+
+## Hint
+Fixed size window is given => Fix length window, else if groups are intersecting => Intersecting windows, else if groups are not intersecting => Non-intersecting windows

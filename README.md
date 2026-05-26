@@ -141,7 +141,55 @@ More then one array is given => Pointer per array, else if in-place modification
 
 ***When to use?***
 - Working with "in-row" groups
-- Groups are intersecting. One element lives in one group only
+- Groups are intersecting. One element can live in several groups
 
 ## Hint
 Fixed size window is given => Fix length window, else if groups are intersecting => Intersecting windows, else if groups are not intersecting => Non-intersecting windows
+
+# Hash-tables
+## Method of counting
+***Example task***  
+**Problem** - *Is given string palindrom?*
+<img width="870" height="284" alt="image" src="https://github.com/user-attachments/assets/e1180a51-7096-4ec6-b33f-28e091ec93f0" />
+
+**Idea** - *First of all, properties of palindrome - every character has even number of appearances or at least one character has odd number of appearences.*
+
+**Pseudocode**  
+<img width="592" height="214" alt="image" src="https://github.com/user-attachments/assets/21ca3f6c-f885-4994-b849-728dcc14c5a6" />
+
+**Main ideas**
+- Do the counting (in case of example task we count number of appearences of each character)
+- Work with result of "Counting" phase (in case of example task we check if at least one character has odd number of appearences)
+
+**Time complexity - O(n)**  
+**Space complexity - O(k), where "k" is number of unique items in hash**
+
+***When to use?***
+- Task on anagrams or palindroms 
+- Work with frequences of items' appearence
+
+## KV - VK
+***Example task***  
+**Problem** - *Sort characters of the given string by the frequence of theirs appearance*  
+<img width="449" height="281" alt="image" src="https://github.com/user-attachments/assets/a3af3050-aee0-4fd7-982a-008716c50d3d" />
+
+**Idea** - *Count appreance of each character(like in example task from "Method of counting"). Create **freq_list** where index of the character is number of character's appearance. Then we build result string using **freq_list***  
+
+**Pseudocode**  
+<img width="670" height="265" alt="image" src="https://github.com/user-attachments/assets/c1d4e51e-52bf-45e6-8b88-384a537d4666" />
+
+**Main ideas**
+- Do the counting (in case of example task we count number of appearences of each character)
+- Create ***freq_list*** (read **Idead** once again)
+- Build result
+
+**Time complexity - O(n)**  
+**Space complexity - O(n)**
+
+***When to use?***
+- Sorting tasks
+- Find top K elements that meets some condition
+
+## Hint
+Sort by frequence of appearance or top K => KV-VK, else if anagrama or palindrome => Method of counting, else => think what can be key and what can be value(look at the image below)  
+<img width="545" height="301" alt="image" src="https://github.com/user-attachments/assets/dd4ed0b2-2507-4157-b460-230e4a7b6438" />

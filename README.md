@@ -193,3 +193,88 @@ Fixed size window is given => Fix length window, else if groups are intersecting
 ## Hint
 Sort by frequence of appearance or top K => KV-VK, else if anagrama or palindrome => Method of counting, else => think what can be key and what can be value(look at the image below)  
 <img width="545" height="301" alt="image" src="https://github.com/user-attachments/assets/dd4ed0b2-2507-4157-b460-230e4a7b6438" />
+
+# Array & Sorting
+***Problem visualisation***  
+<img width="975" height="555" alt="image" src="https://github.com/user-attachments/assets/030c7629-45f1-4e70-b6ec-dbcd0f3b64b0" />  
+**Description** - Several segments given. In code they are represented as arrays
+
+***Intersection check rule***  
+<img width="530" height="251" alt="image" src="https://github.com/user-attachments/assets/2eb7a667-70e9-4427-a7be-783c68a30b47" />  
+**Idea** - starting coordinate of intersection is maximum coordinate of two starting points of two segments, ending coordinate of intersection is minimum of two ending coordinates of segments.
+
+***Union of segments***  
+<img width="883" height="549" alt="image" src="https://github.com/user-attachments/assets/5f4aa505-b94e-465f-9f30-91e2c1723f74" />
+
+## Method of segments  
+***Example task***  
+**Problem** - *Given array of segments. Make union of all intersected segments*
+<img width="711" height="310" alt="image" src="https://github.com/user-attachments/assets/718499fb-dedc-4266-9094-5de65a7b6ea4" />  
+
+**Idea** - *First of all sort segements by theirs starting point. Add first one to the result. If next segment intersects last one, add end of this new segment to the last one. Otherwise add it as whole*
+
+**Result**  
+<img width="1212" height="585" alt="image" src="https://github.com/user-attachments/assets/15211821-c37e-4be9-b647-01cc31204816" />
+
+**Pseudocode**  
+<img width="638" height="245" alt="image" src="https://github.com/user-attachments/assets/51c55b20-8e49-4630-9db4-e6514ad874e8" />
+
+**Main idea**
+- Sorting
+- Initialization
+- Iterate over other segments
+
+**Time complexity - O(n*log(n))**  
+**Space complexity - O(n)**
+
+***When to use?***
+- Tasks for union or intersections
+
+## Pointer per array, but for segments
+***Example task***
+**Problem** - *Given two arrays with sorted segments. Find all intersections*  
+<img width="751" height="251" alt="image" src="https://github.com/user-attachments/assets/5bc18e0f-fa50-45b0-87c0-881e8613e53e" />
+
+**Idea** - *Set pointer per array. Move pointer which points to the segment, which has lower end cordinate, if segments intersecting, write down the segments. Move untill at least one pointer is out of the range of any array*
+
+**Pseudocode**  
+<img width="698" height="208" alt="image" src="https://github.com/user-attachments/assets/806b2f32-221e-463d-b441-3fc2a30727e2" />  
+
+**Main ideas**  
+- Initialization
+- Cyclus until one of the pointer leaves the range
+- Logic of moving the pointers (Main idea is here. Understand when to move pointers)
+
+**Time complexity - O(n+m)**  
+**Space complexity - O(max(n,m))**
+
+> Overall this approach is the same as - Two pointers -> Pointers per array
+
+***When to use?***
+- Sequence of intervals in several arrays
+
+## Method of points
+***Example task***  
+**Problem** - *Find max number of rooms in order to make all these meetings*  
+<img width="970" height="570" alt="image" src="https://github.com/user-attachments/assets/0f6a5302-26be-4567-9a45-588a30aab48c" />
+
+**Idea** - *Each segment has start and end point. Each segment is transformed into two point, where start point has +1 as pair and end point has -1 as pair. Then we sort them by point and iterate through the pairs and incrementing/decrementing the counter. Max value of the counter is our result*
+
+**Deatails**  
+<img width="417" height="147" alt="image" src="https://github.com/user-attachments/assets/2a16dc19-64ae-416a-bb26-3b5d0348822d" />
+
+<img width="673" height="221" alt="image" src="https://github.com/user-attachments/assets/e2089f88-2f5d-4920-a189-0ccfd9692394" />
+
+**Pseudocode**  
+<img width="896" height="502" alt="image" src="https://github.com/user-attachments/assets/93f9274b-8c71-4749-811f-3dfca98e13f5" />
+
+**Main ideas**  
+- Convert to points
+- Sorting
+- Iterate through sorted points and form the answer (Key point is here. Form the result correctly)
+
+***When to use?***  
+- Find maximum number of simoultaneous events
+
+## Hints
+Two arrays of segments are given => Pointer per array, else if Find maximum number of parallel/simoultaneous events at some point of time => Method of points, else => Method of segments

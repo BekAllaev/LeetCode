@@ -44,5 +44,8 @@
     <ClInclude Include="RemoveElementArray.h">
       <Filter>Source Files\Problems</Filter>
     </ClInclude>
+    <ClInclude Include="MergeSortedArrays.h">
+      <Filter>Source Files\Problems</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

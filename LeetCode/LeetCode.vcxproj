@@ -133,6 +133,7 @@
   <ItemGroup>
     <ClInclude Include="LinkedListCycle.h" />
     <ClInclude Include="LongestCommonPrefix.h" />
+    <ClInclude Include="MergeSortedArrays.h" />
     <ClInclude Include="RemoveDuplicateFromSortedArray.h" />
     <ClInclude Include="RemoveElementArray.h" />
     <ClInclude Include="RomanToInteger.h" />

@@ -330,3 +330,78 @@ Two arrays of segments are given => Pointer per array, else if Find maximum numb
 
 ## Hint
 If we can separate items on "good" and "bad" then => Base binary search, else if some preparation is needed => Double binary search
+
+# Stack
+## Basic stack 
+***Example task***  
+**Problem** - *Check that parenthesis are in the correct order*  
+<img width="574" height="264" alt="image" src="https://github.com/user-attachments/assets/eaf5bd19-35d8-4c61-aea8-b1754380bb78" />
+
+**Idea** - *Put parenthesis into stack if it is opening and pop if it is closing parenthesis and it matches top openning. At the end check if stack is empty, if yes, then parenthesis were in correct order. If current closing and current top opening parenthesises do not match we return false*
+
+**Pseudocode**  
+<img width="531" height="239" alt="image" src="https://github.com/user-attachments/assets/f996b830-2e97-4c70-97cf-73b5902634a5" />
+
+**Main ideas**  
+- Initialize stack
+- Cycle
+- Logic of working with stack
+
+**Time complexity - O(n)**  
+**Space complexity - O(n)**
+
+***When to use?!***  
+- We need to work with parenthesis or nested structures(like if sequence of parenthesis is correct)
+- Compute some expression
+- We work with some intermidiate state
+
+## Monothonic stack
+***Example task***  
+**Problem** - *Given array with numbers. Convert this given array into array, where for each element we find next bigger element from the right side, if there is no such for current element we write down -1*  
+<img width="408" height="169" alt="image" src="https://github.com/user-attachments/assets/e90387b4-3056-4b21-974b-4c0ad12bd8bc" />
+
+**Idea** - *First we initialize array of -1's, size of this array is equal to the size of given array. We starting from the end(in other words we starting from the right) and put element on the stack. When we want to push item to stack we compare it with the top item of the stack, if the item that we want to push is smaller than the top item from the top of the stack we write top item from the stack into result array and push the new item. If the item that we want to push is bigger than the top item from the stack then we pop top item then we compare the item that we want to push with new top as we did above.*
+
+**Idea 2**  
+<img width="749" height="359" alt="image" src="https://github.com/user-attachments/assets/7ecc8be7-edd9-463c-bcac-cace9cd338f5" />
+We can see that on each step items in the stack are descending from top to bottom, that is why it is called monothonic stack. We have monothinic sequences stored in stack
+
+**Pseudocode**  
+<img width="645" height="263" alt="image" src="https://github.com/user-attachments/assets/3f4ea3fd-0474-46bb-84d1-03a36a9a40be" />
+
+**Main ideas**  
+- Initializations
+- Cycle
+- Logic of keeping the monotone
+Key ideas: Find out if we should move from left to the right or from right to the left, and find out logic that will keep stack monotone
+
+**Time complexity - O(n), even though we can have several cycles it is still O(n), since every item is pushed and poped only once**  
+**Space complexity - O(n)**
+
+***When to use?***  
+- Find the closest bigger/smaller item from the left/right
+
+ ## Pseudo stack
+ ***Example task***   
+ **Problem** - *Given sequence of same type of paranthesis, we should find out if this sequence is correct or not*  
+ <img width="420" height="216" alt="image" src="https://github.com/user-attachments/assets/b288c3ad-7f12-4a9f-93e0-94696969d107" />
+
+ **Idea** - *We use counter which we increment when we read opening parenthesis and decrement when we read closing parenthesis. At the end check if counter is equal to zero*
+
+**Pseudocode**  
+<img width="595" height="251" alt="image" src="https://github.com/user-attachments/assets/bcba66fe-3dcd-41f2-9b36-275865a41093" />
+
+**Main ideas**
+- Counter intialization
+- Cycle
+- Logic of counter increment/decrement
+
+**Time complexity - O(n)**  
+**Space complexity - O(1)**
+
+***When to use?***  
+- We have a sequence where we have items of the same type
+- We need to know only the size of the stack and not its content
+
+# Hint
+We need to find closest smaller/bigger item => Monothonic stack, else if we can replace stack with counter => Pseudo stack, else => Basic stack

@@ -273,8 +273,60 @@ Sort by frequence of appearance or top K => KV-VK, else if anagrama or palindrom
 - Sorting
 - Iterate through sorted points and form the answer (Key point is here. Form the result correctly)
 
+**Time complexity - O(n*log(n))**  
+**Space complexity - O(n)**
+
 ***When to use?***  
 - Find maximum number of simoultaneous events
 
 ## Hints
 Two arrays of segments are given => Pointer per array, else if Find maximum number of parallel/simoultaneous events at some point of time => Method of points, else => Method of segments
+
+# Binary search
+## Base binary search
+***Example task***  
+**Problem** - *Find last appearance of number 8. Sorted array is given*    
+<img width="590" height="173" alt="image" src="https://github.com/user-attachments/assets/61a241d6-c7b5-4bd9-ae6f-8aa9784668b9" />
+
+**Idea** - *Set pointers from both end. Compare middle element to target(which is 8). If middle elemnt is bigger than target than move right pointer to the middle element, else move left pointer to the right. Continue untill two pointer are stand by each other(i.e. they are neighbours)*
+
+**Idea #2** - *We have "bad" and "good" elements, where "bad" elements are ones that are bigger than the target and "good" elements are smaller or equal to the target. So we need to find the element where "bad" switches to "good". The border lies between last "good" pointer and first "bad" pointer*
+
+***Details***  
+<img width="923" height="514" alt="image" src="https://github.com/user-attachments/assets/a8774262-d79c-46f9-8d88-e57f0ac1797d" />
+
+***Main ideas***  
+- Initialization of left and right pointers
+- Cycle until left and right don't stand by each other(neighbours)
+- Finding the "middle"
+- Narrowing down search area
+- Handling the result
+
+***Main ideas #2*** - *find out function that define if element is "good", this is the core idea. Usually Left and Right pointer are not needed here, using element from the array and target is enough*
+
+***Main ideas #3*** - *once again, we are looking for last "good" and first "bad"*
+
+**Time complexity - O(log(n))**  
+**Space complexity - O(1)**
+
+***When to use?***  
+- If we can separate items into "good" and "bad"
+## Double binary search
+***Example task***  
+**Problem** - *Find first and last position of the 7, if not exists return [-1,-1]*  
+<img width="451" height="171" alt="image" src="https://github.com/user-attachments/assets/2ba75161-c059-416c-9b46-9444c5ee08af" />
+
+**Idea** - *run two binary searchs. First one will find last position, second one will find first position*
+
+**Pseudocode**  
+<img width="831" height="639" alt="image" src="https://github.com/user-attachments/assets/e9dcdeec-ab25-4f71-a599-66888d7baae4" />
+
+**Time complexity - O(log(n))**  
+**Space complexity - O(1)**
+
+***When to use?***
+- Find the range
+- We need to run first binary search in order to prepare array for the main run of the binary search
+
+## Hint
+If we can separate items on "good" and "bad" then => Base binary search, else if some preparation is needed => Double binary search

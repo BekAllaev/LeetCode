@@ -403,5 +403,76 @@ Key ideas: Find out if we should move from left to the right or from right to th
 - We have a sequence where we have items of the same type
 - We need to know only the size of the stack and not its content
 
-# Hint
+## Hint
 We need to find closest smaller/bigger item => Monothonic stack, else if we can replace stack with counter => Pseudo stack, else => Basic stack
+
+# Prefix sums
+
+***Definition of prefix sums***  
+Let's say some array is given. Based on this given array we create another one, where first elemnt is 0 always. Let's say we want to add new element, we don't this element itself, rather we add this element to the current last element and thus get the new element(see the picture below)  
+<img width="592" height="171" alt="image" src="https://github.com/user-attachments/assets/e9026677-d268-4958-87ad-727c28a2ea6a" />
+
+***Facts***  
+- Element in the prefix sum array with N index is the sum of all previous elements from the original array, thus we have sum of all N elements for O(1)
+
+***What is sufix sums?***  
+The same concept but from the end(from the right side of the array)
+
+## Array of sum
+***Example task*** 
+**Problem** - *Two dimension array is given. Find position of the rook(can move only to sides and forward and backward) where fields that are attacked by rook give maximum sum*  
+<img width="533" height="466" alt="image" src="https://github.com/user-attachments/assets/282571b7-3d5b-42e6-a45c-7109381b3d28" />
+
+***Idea***  
+<img width="428" height="298" alt="image" src="https://github.com/user-attachments/assets/40ae1574-6516-481e-ba83-f69b9c85963d" />  
+*Calculate sum for each row and column, then we itterate whole array and find sum for each field, take a look to the picture below.*  
+<img width="841" height="563" alt="image" src="https://github.com/user-attachments/assets/df00f75e-fd2d-465f-9f74-ba4d2b21e737" />
+
+
+***Pseudocode***  
+<img width="1038" height="565" alt="image" src="https://github.com/user-attachments/assets/95bc2427-aee2-4b04-8c3a-7a4f6da56e86" />
+
+***Main ideas***  
+- Initialization
+- Calculating array of sums
+- Finding the answer through calculated array of sums
+
+**Time complexity - O(n*m), where N is the size of the matrix**  
+**Space complexity - O(n+m)**
+
+***When to use?***  
+- Matrix is given
+- We need to calculate aggregates by columns and rows
+
+## Moving prefix
+***Example task***  
+**Problem** - *Array is given. Find index of the element, so elements from the right and elemenents from the left give equal sum*  
+
+<img width="412" height="223" alt="image" src="https://github.com/user-attachments/assets/e07d255a-f19d-450e-8182-a3b8f8f0d7b7" />
+
+**Idea** - *Calculate sum of all elements. Keep moving pointer and recalculate sum of the items from the right and from the left, untill we met the condition or reach the end of the array*
+
+**Idea 2** - *Idea of this pattern is that instead of suffix/prefix array we use some variable(I am not sure if I understand the point.... but wrote it down here, so it reaches me later..... I hope)*
+
+***Pseudocode***  
+<img width="604" height="257" alt="image" src="https://github.com/user-attachments/assets/68291ba4-af5c-472b-b629-ab914eb67d0e" />
+
+**Main ideas**  
+- Initialization
+- Cyckling 
+- Logic of update (in this current case we keep updating Suffix sum and Prefix sum)
+
+> Pattern is called "Moving prefix" since we calculate prefix and suffix in flight(we don't do it beforehand)
+
+**Time complexity - O(n)**  
+**Space complexity - O(1)**
+
+***When to use?***  
+- We don't need to know elements of the "Prefix" and "Suffix" sums, we need only let's say - sum of suffix and prefix arrays
+- Sum(that we calculate in flight) can be used as hash key for example or in other data structures
+
+## Hint
+You store prefix and order of the sum matters => classical prefix array
+You store prefix and order of the sum doesn't matter => prefix as key for hash
+Work with sums by rows, columns, diagonales => Array of sum
+Don't Work with sums by rows, columns, diagonales => Moving prefix

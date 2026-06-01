@@ -50,5 +50,8 @@
     <ClInclude Include="SearchInsertPortion.h">
       <Filter>Source Files\Problems</Filter>
     </ClInclude>
+    <ClInclude Include="BaseBallGame.h">
+      <Filter>Source Files\Problems</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

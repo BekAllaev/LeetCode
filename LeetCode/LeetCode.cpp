@@ -6,6 +6,7 @@
 #include "RemoveDuplicateFromSortedArray.h"
 #include "ContainsDuplicateII.h"
 #include "MergeSortedArrays.h"
+#include "BaseBallGame.h"
 
 using namespace std;
 
@@ -69,7 +70,7 @@ int main()
 	//std::cout << "For vector5" << " " << containsDuplicateII.containsNearbyDuplicate(vector5, k5) << std::endl;
 	//std::cout << "For vector6" << " " << containsDuplicateII.containsNearbyDuplicate(vector6, k6) << std::endl;
 
-	MergeSortedArray::Solution mergeSortedArray;
+	//MergeSortedArray::Solution mergeSortedArray;
 	//vector<int> vector1 = { 1,2,3,0,0,0 };
 	//vector<int> vector2 = { 2,5,6 };
 	//int m1 = 3, n1 = 3;
@@ -85,8 +86,13 @@ int main()
 	//int m = 1, n = 1;
 	//mergeSortedArray.merge(vector1, m, vector2, n);
 
-	vector<int> vector1 = { 1,2,3,0,0,0 };
-	vector<int> vector2 = { 4,5,6 };
-	int m1 = 3, n1 = 3;
-	mergeSortedArray.merge(vector1, m1, vector2, n1);
+	//vector<int> vector1 = { 1,2,3,0,0,0 };
+	//vector<int> vector2 = { 4,5,6 };
+	//int m1 = 3, n1 = 3;
+	//mergeSortedArray.merge(vector1, m1, vector2, n1);
+
+	BaseBallGame::Solution baseBallGame;
+
+	vector<string> operations = { "5", "-2", "4", "C", "D", "9", "+", "+" };
+	baseBallGame.calPoints(operations);
 }

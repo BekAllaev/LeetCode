@@ -131,6 +131,7 @@
     <ClCompile Include="LeetCode.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BaseBallGame.h" />
     <ClInclude Include="LinkedListCycle.h" />
     <ClInclude Include="LongestCommonPrefix.h" />
     <ClInclude Include="MergeSortedArrays.h" />

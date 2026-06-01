@@ -330,3 +330,149 @@ Two arrays of segments are given => Pointer per array, else if Find maximum numb
 
 ## Hint
 If we can separate items on "good" and "bad" then => Base binary search, else if some preparation is needed => Double binary search
+
+# Stack
+## Basic stack 
+***Example task***  
+**Problem** - *Check that parenthesis are in the correct order*  
+<img width="574" height="264" alt="image" src="https://github.com/user-attachments/assets/eaf5bd19-35d8-4c61-aea8-b1754380bb78" />
+
+**Idea** - *Put parenthesis into stack if it is opening and pop if it is closing parenthesis and it matches top openning. At the end check if stack is empty, if yes, then parenthesis were in correct order. If current closing and current top opening parenthesises do not match we return false*
+
+**Pseudocode**  
+<img width="531" height="239" alt="image" src="https://github.com/user-attachments/assets/f996b830-2e97-4c70-97cf-73b5902634a5" />
+
+**Main ideas**  
+- Initialize stack
+- Cycle
+- Logic of working with stack
+
+**Time complexity - O(n)**  
+**Space complexity - O(n)**
+
+***When to use?!***  
+- We need to work with parenthesis or nested structures(like if sequence of parenthesis is correct)
+- Compute some expression
+- We work with some intermidiate state
+
+## Monothonic stack
+***Example task***  
+**Problem** - *Given array with numbers. Convert this given array into array, where for each element we find next bigger element from the right side, if there is no such for current element we write down -1*  
+<img width="408" height="169" alt="image" src="https://github.com/user-attachments/assets/e90387b4-3056-4b21-974b-4c0ad12bd8bc" />
+
+**Idea** - *First we initialize array of -1's, size of this array is equal to the size of given array. We starting from the end(in other words we starting from the right) and put element on the stack. When we want to push item to stack we compare it with the top item of the stack, if the item that we want to push is smaller than the top item from the top of the stack we write top item from the stack into result array and push the new item. If the item that we want to push is bigger than the top item from the stack then we pop top item then we compare the item that we want to push with new top as we did above.*
+
+**Idea 2**  
+<img width="749" height="359" alt="image" src="https://github.com/user-attachments/assets/7ecc8be7-edd9-463c-bcac-cace9cd338f5" />
+We can see that on each step items in the stack are descending from top to bottom, that is why it is called monothonic stack. We have monothinic sequences stored in stack
+
+**Pseudocode**  
+<img width="645" height="263" alt="image" src="https://github.com/user-attachments/assets/3f4ea3fd-0474-46bb-84d1-03a36a9a40be" />
+
+**Main ideas**  
+- Initializations
+- Cycle
+- Logic of keeping the monotone
+Key ideas: Find out if we should move from left to the right or from right to the left, and find out logic that will keep stack monotone
+
+**Time complexity - O(n), even though we can have several cycles it is still O(n), since every item is pushed and poped only once**  
+**Space complexity - O(n)**
+
+***When to use?***  
+- Find the closest bigger/smaller item from the left/right
+
+ ## Pseudo stack
+ ***Example task***   
+ **Problem** - *Given sequence of same type of paranthesis, we should find out if this sequence is correct or not*  
+ <img width="420" height="216" alt="image" src="https://github.com/user-attachments/assets/b288c3ad-7f12-4a9f-93e0-94696969d107" />
+
+ **Idea** - *We use counter which we increment when we read opening parenthesis and decrement when we read closing parenthesis. At the end check if counter is equal to zero*
+
+**Pseudocode**  
+<img width="595" height="251" alt="image" src="https://github.com/user-attachments/assets/bcba66fe-3dcd-41f2-9b36-275865a41093" />
+
+**Main ideas**
+- Counter intialization
+- Cycle
+- Logic of counter increment/decrement
+
+**Time complexity - O(n)**  
+**Space complexity - O(1)**
+
+***When to use?***  
+- We have a sequence where we have items of the same type
+- We need to know only the size of the stack and not its content
+
+## Hint
+We need to find closest smaller/bigger item => Monothonic stack, else if we can replace stack with counter => Pseudo stack, else => Basic stack
+
+# Prefix sums
+
+***Definition of prefix sums***  
+Let's say some array is given. Based on this given array we create another one, where first elemnt is 0 always. Let's say we want to add new element, we don't this element itself, rather we add this element to the current last element and thus get the new element(see the picture below)  
+<img width="592" height="171" alt="image" src="https://github.com/user-attachments/assets/e9026677-d268-4958-87ad-727c28a2ea6a" />
+
+***Facts***  
+- Element in the prefix sum array with N index is the sum of all previous elements from the original array, thus we have sum of all N elements for O(1)
+
+***What is sufix sums?***  
+The same concept but from the end(from the right side of the array)
+
+## Array of sum
+***Example task*** 
+**Problem** - *Two dimension array is given. Find position of the rook(can move only to sides and forward and backward) where fields that are attacked by rook give maximum sum*  
+<img width="533" height="466" alt="image" src="https://github.com/user-attachments/assets/282571b7-3d5b-42e6-a45c-7109381b3d28" />
+
+***Idea***  
+<img width="428" height="298" alt="image" src="https://github.com/user-attachments/assets/40ae1574-6516-481e-ba83-f69b9c85963d" />  
+*Calculate sum for each row and column, then we itterate whole array and find sum for each field, take a look to the picture below.*  
+<img width="841" height="563" alt="image" src="https://github.com/user-attachments/assets/df00f75e-fd2d-465f-9f74-ba4d2b21e737" />
+
+
+***Pseudocode***  
+<img width="1038" height="565" alt="image" src="https://github.com/user-attachments/assets/95bc2427-aee2-4b04-8c3a-7a4f6da56e86" />
+
+***Main ideas***  
+- Initialization
+- Calculating array of sums
+- Finding the answer through calculated array of sums
+
+**Time complexity - O(n*m), where N is the size of the matrix**  
+**Space complexity - O(n+m)**
+
+***When to use?***  
+- Matrix is given
+- We need to calculate aggregates by columns and rows
+
+## Moving prefix
+***Example task***  
+**Problem** - *Array is given. Find index of the element, so elements from the right and elemenents from the left give equal sum*  
+
+<img width="412" height="223" alt="image" src="https://github.com/user-attachments/assets/e07d255a-f19d-450e-8182-a3b8f8f0d7b7" />
+
+**Idea** - *Calculate sum of all elements. Keep moving pointer and recalculate sum of the items from the right and from the left, untill we met the condition or reach the end of the array*
+
+**Idea 2** - *Idea of this pattern is that instead of suffix/prefix array we use some variable(I am not sure if I understand the point.... but wrote it down here, so it reaches me later..... I hope)*
+
+***Pseudocode***  
+<img width="604" height="257" alt="image" src="https://github.com/user-attachments/assets/68291ba4-af5c-472b-b629-ab914eb67d0e" />
+
+**Main ideas**  
+- Initialization
+- Cyckling 
+- Logic of update (in this current case we keep updating Suffix sum and Prefix sum)
+
+> Pattern is called "Moving prefix" since we calculate prefix and suffix in flight(we don't do it beforehand)
+
+**Time complexity - O(n)**  
+**Space complexity - O(1)**
+
+***When to use?***  
+- We don't need to know elements of the "Prefix" and "Suffix" sums, we need only let's say - sum of suffix and prefix arrays
+- Sum(that we calculate in flight) can be used as hash key for example or in other data structures
+
+## Hint
+You store prefix and order of the sum matters => classical prefix array
+You store prefix and order of the sum doesn't matter => prefix as key for hash
+Work with sums by rows, columns, diagonales => Array of sum
+Don't Work with sums by rows, columns, diagonales => Moving prefix

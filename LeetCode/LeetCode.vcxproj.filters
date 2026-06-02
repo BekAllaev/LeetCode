@@ -53,5 +53,8 @@
     <ClInclude Include="BaseBallGame.h">
       <Filter>Source Files\Problems</Filter>
     </ClInclude>
+    <ClInclude Include="NumArray.h">
+      <Filter>Source Files\Problems</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

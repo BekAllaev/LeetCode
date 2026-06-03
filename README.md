@@ -1,5 +1,10 @@
 All cheat sheet are taken from here - https://www.youtube.com/watch?v=cpuRbnWEPio&t=3731s (great resource)
 
+This resource - https://www.youtube.com/watch?v=Y4fGaBT45IM, suggested to not go down deep in the task from the sections below(look to the image below) (let's just left it here for info, we will see if that works or not)
+
+<img width="500" height="245" alt="image" src="https://github.com/user-attachments/assets/03ca7293-bc90-456d-84c4-4426925ad884" />
+
+
 # Two pointers
 ## Moving from both ends
 ***Examples task***  
@@ -476,3 +481,94 @@ You store prefix and order of the sum matters => classical prefix array
 You store prefix and order of the sum doesn't matter => prefix as key for hash
 Work with sums by rows, columns, diagonales => Array of sum
 Don't Work with sums by rows, columns, diagonales => Moving prefix
+
+# Linked list
+## Basic operations
+### Counting elements
+Just iterate through the nodes and increase the counter  
+<img width="425" height="224" alt="image" src="https://github.com/user-attachments/assets/0fbb2324-5ee8-4ae1-93f2-94fc1bc7ddbb" />
+
+**Time complexity - O(n)**  
+**Space complexity - O(1)**
+
+### Finding the middle of the list
+For even number of elements we usually from two middle we usually take the first one, for odd number of elements it is just the middle one  
+<img width="529" height="252" alt="image" src="https://github.com/user-attachments/assets/d8d4807d-189d-4bc9-b935-4432c5901b2d" />
+
+**How we find the middle?**  
+~~We iterate over the list and divide the size by 2.~~
+
+We set "slow" and "fast" pointers, where slow moves by one and fast moves by two elements. When fast pointer reaches the end, the slow one points to the middle  
+<img width="472" height="232" alt="image" src="https://github.com/user-attachments/assets/7ff64538-297e-4c2c-bf31-117f7ea8aee0" />
+
+**Time complexity - O(n)**  
+**Space complexity - O(1)**
+
+### Reversing of the linked list
+**Main idea** - **do it without creating anothe linked list**
+
+**Idea** - *Set "prev" and "curr" pointer. Curr points to the current node and we put this curr pointer to the temp pointer, then we move to the Curr.Next and break the link between curr and curr.next, then we point tmp.next to the prev pointer, then we move prev. Move until curr is not null*
+
+<img width="455" height="270" alt="image" src="https://github.com/user-attachments/assets/cf1917db-6d64-4a74-a942-82b7fb76837e" />
+
+**Time complexity - O(n)**  
+**Space complexity - O(1)**
+
+---
+
+## Dummy node
+***Example task***  
+**Problem** - *Merge two sorted linked list*  
+<img width="752" height="507" alt="image" src="https://github.com/user-attachments/assets/ea5b14c3-2d98-4c75-b898-2c103a945c2c" />
+
+**Idea** - *We don't create new linked list, actually we just re-arrange existing connections, we just create one dummy node*  
+**Idea 2** - *We create dummy node, and set a pointer per linked list. We compare pointers and the one that is smaller is assigned to the dummy node, then we move the smaller pointer. We continue until two pointer don't leave the list. At the end we return Dummy.Next, that is the answer*  
+<img width="553" height="359" alt="image" src="https://github.com/user-attachments/assets/71b51936-e00e-49c0-b642-b95d80e33e7e" />
+
+**Pseudocode**  
+<img width="516" height="238" alt="image" src="https://github.com/user-attachments/assets/811799d6-09c5-4646-99a1-a097518549c1" />
+
+> If programming language don't have Garbage Collector(like C++ does) don't forget to delete Dummy Node
+
+**Main ideas**  
+- Initialize dummy node
+- Calculate the answer
+- Return Dummy.Next
+
+**Time complexity - O(n+m)**  
+**Space complexity - O(1)**
+
+***When to use?***  
+- We need dummy node to bind answer to it(like we need it temporarly)
+- Do deletion of some nodes without "if-else" (I am not sure if I understand this)
+
+## Partial reverse
+***Example task***  
+**Problem** - *Is given linked list pallindrome?*  
+<img width="570" height="211" alt="image" src="https://github.com/user-attachments/assets/adb8ee55-a351-4f2f-bf1a-4e91b2e87342" />
+
+**Possible idea** - *Use pattern "moving from both end" like we would do for array but it doesn't work here since in linked list we can move only forward*
+
+**Working idea** - *Find the middle and reverse only the one middle of the list, where middle.next will point to the null node. At the end we just iterate from both sides and if all elements are equal then we have a pallindrome*  
+
+***Pseudocode***  
+<img width="596" height="269" alt="image" src="https://github.com/user-attachments/assets/380ca2af-1a9f-417c-b987-857979e55c19" />
+
+**Main ideas**  
+- Use "Finding the middle" algorithm
+- Use "Reverse the linked list" algorithm
+- Then "Partial reverse"
+- And some other pattern (for example in this current case it was - "moving from both sides")
+
+**Time complexity - O(n)**  
+**Space complexity - O(1)**
+
+***When to use?***  
+- Task with pallindrome
+- We need to use pattern "from both sides" in linked list
+
+## Hint
+We need to create new list from given nodes => Dummy node, else we need to work "from both sides" => partial reverse
+**Main idea of the stack** - *Most of all we need stack operations in order to prepare data for application of the main algorithm*
+
+

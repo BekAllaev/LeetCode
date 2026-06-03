@@ -56,5 +56,8 @@
     <ClInclude Include="NumArray.h">
       <Filter>Source Files\Problems</Filter>
     </ClInclude>
+    <ClInclude Include="ReverseLinkedList.h">
+      <Filter>Source Files\Problems</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

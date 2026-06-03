@@ -138,6 +138,7 @@
     <ClInclude Include="NumArray.h" />
     <ClInclude Include="RemoveDuplicateFromSortedArray.h" />
     <ClInclude Include="RemoveElementArray.h" />
+    <ClInclude Include="ReverseLinkedList.h" />
     <ClInclude Include="RomanToInteger.h" />
     <ClInclude Include="SearchInsertPortion.h" />
     <ClInclude Include="ValidParentheses.h" />

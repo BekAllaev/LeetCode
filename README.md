@@ -1,5 +1,10 @@
 All cheat sheet are taken from here - https://www.youtube.com/watch?v=cpuRbnWEPio&t=3731s (great resource)
 
+This resource - https://www.youtube.com/watch?v=Y4fGaBT45IM, suggested to not go down deep in the task from the sections below(look to the image below) (let's just left it here for info, we will see if that works or not)
+
+<img width="500" height="245" alt="image" src="https://github.com/user-attachments/assets/03ca7293-bc90-456d-84c4-4426925ad884" />
+
+
 # Two pointers
 ## Moving from both ends
 ***Examples task***  

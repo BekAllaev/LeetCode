@@ -571,4 +571,61 @@ We set "slow" and "fast" pointers, where slow moves by one and fast moves by two
 We need to create new list from given nodes => Dummy node, else we need to work "from both sides" => partial reverse
 **Main idea of the stack** - *Most of all we need stack operations in order to prepare data for application of the main algorithm*
 
+# Backtracking problems
+## Brute force
+***Example task***  
+**Problem** - *Generate all possible string combinations*  
+<img width="1047" height="474" alt="image" src="https://github.com/user-attachments/assets/73759004-81bc-4202-b517-2dd5cebe0a17" />
 
+**Idea** - *First of all we we add empty string(I am not sure why), then we add all characters from 2 and remove empty string(still not sure why). Then for every character from 2 we combinate with characters from 4 at the end we remove character from 2.*  
+<img width="518" height="300" alt="image" src="https://github.com/user-attachments/assets/6fc787b2-b78b-4bd2-a775-f0695ee2ffe6" />
+
+***Pseudocode***  
+<img width="637" height="309" alt="image" src="https://github.com/user-attachments/assets/3067adeb-af13-4362-860a-af06a99f6e0f" />
+
+***Main ideas***  
+- Initializing of queue/dequeue
+- Cyckling(here is the main idea, we need to understand condition of stopage)
+- Removing first element
+- Generation of the combination
+
+**Time complexity - O(n*4^n)**  
+**Space complexity - O(n*4^n), FUHA, I am not sure what does it mean and if this is optimal for all bruteforce approaches. More likely it is only for current problem**
+
+***When to use?!***  
+- Generating all possible combinations, replacements or sub-sets
+
+## Backtracking
+***Example task***  
+**Problem** - *Given N. We need to find all possible combinations of sequence with valid set of parenthesis*  
+<img width="654" height="205" alt="image" src="https://github.com/user-attachments/assets/21ef5ac3-7735-4981-93e8-f1bee844dfa3" />
+
+**Idea** - *From the start we generate only valid sequence. We don't generate all and then remove not valid*
+
+**Idea 1** - *We start from this. We put empty string. First number is number of openning parenthesis, second number is clossing parenthesis.*  
+<img width="595" height="169" alt="image" src="https://github.com/user-attachments/assets/b9ae074f-2b49-4049-87e6-4382b45802ce" />
+
+**Idea 2** - *So at each step we work with first element. We can append closing parenthesis when number of openning parenthesis is bigger then number of closing parenthesis. After each iteration we remove first element. We stop as soons as first element has 2n chars*
+
+***Pseudocode***  
+<img width="676" height="260" alt="image" src="https://github.com/user-attachments/assets/c2b79665-f1c0-407f-89f0-6ffeadf9b2de" />
+
+***Main ideas***  
+- Initializing queue/dequeue
+- Cyckling(here is the main idea, we need to understand condition of stopage)
+- Removing first element
+- Generation of the valid-only combination
+
+**Time complexity - O(n*4^n/sqrt(n))**  
+**Space complexity - O(n*4^n/sqrt(n)), FUHA, I am not sure what does it mean and if this is optimal for all bruteforce approaches. More likely it is only for current problem**
+
+> In backtracking time/space complexities are solely based on Math, so maybe there is the next thing that you should improve....
+
+Author suggest to say this Time/Space complexity on interview - O(n*2^(2*n)), he says this is overall number of combinations
+Author also suggest that you explain on interview that - we are going to generate only correct sequence and we only say overall number of combinations
+
+***When to use?!***  
+- We need to generate sequence by some condition
+
+## Hint
+We need optimized combination => Backtracking, else => Brute force

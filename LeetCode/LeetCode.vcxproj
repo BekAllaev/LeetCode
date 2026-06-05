@@ -142,6 +142,7 @@
     <ClInclude Include="RomanToInteger.h" />
     <ClInclude Include="SearchInsertPortion.h" />
     <ClInclude Include="ValidParentheses.h" />
+    <ClInclude Include="XorTotals.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

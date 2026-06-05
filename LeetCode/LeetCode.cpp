@@ -7,6 +7,7 @@
 #include "ContainsDuplicateII.h"
 #include "MergeSortedArrays.h"
 #include "BaseBallGame.h"
+#include "XorTotals.h"
 
 using namespace std;
 
@@ -91,8 +92,13 @@ int main()
 	//int m1 = 3, n1 = 3;
 	//mergeSortedArray.merge(vector1, m1, vector2, n1);
 
-	BaseBallGame::Solution baseBallGame;
+	//BaseBallGame::Solution baseBallGame;
 
-	vector<string> operations = { "5", "-2", "4", "C", "D", "9", "+", "+" };
-	baseBallGame.calPoints(operations);
+	//vector<string> operations = { "5", "-2", "4", "C", "D", "9", "+", "+" };
+	//baseBallGame.calPoints(operations);
+
+	XorTotals::Solution xorTotals;
+
+	vector<int> nums = { 5,1,6 };
+	xorTotals.subsetXORSum(nums);
 }

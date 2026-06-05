@@ -629,3 +629,64 @@ Author also suggest that you explain on interview that - we are going to generat
 
 ## Hint
 We need optimized combination => Backtracking, else => Brute force
+
+# Tree
+## Little reminder
+- Every node has only one parent
+
+## Basic errors
+- Null check of the children, rather check the node itself  
+<img width="601" height="231" alt="image" src="https://github.com/user-attachments/assets/24235683-4fbb-4798-bfc0-27e4f53d0a69" />
+
+- Forget to handle base case - node is null
+<img width="625" height="180" alt="image" src="https://github.com/user-attachments/assets/bab7f650-0c2a-4a6e-9669-62d27ae30189" />
+
+## From bottom to top
+***Example task***  
+**Problem** - *Find the longest path*  
+<img width="443" height="401" alt="image" src="https://github.com/user-attachments/assets/5e287ee4-e96c-42fa-948b-d563aea4bd4c" />
+
+**Idea** - *We start from finding the path from the leafs*  
+
+**Pseudocode**  
+<img width="1108" height="541" alt="image" src="https://github.com/user-attachments/assets/d5323bf6-910a-4ca7-acfb-0881c49e72a2" />
+
+***Main ideas***  
+- Handling base case(in this situation - null node)
+- Traverse sub-trees
+- Update the result (first main point is here - understand how and what to update)
+- Return result upward to the parent (second main point is here - understand what to return upward)
+
+**Time complexity - O(n), we read every node one time**  
+**Space complexity - O(h), where h - is the height of the tree**
+
+***When to use?***  
+- We need to calculate the final result from bottom to up
+- Result of every node depends on the result of children nodes
+
+## From top to bottom
+***Example task***  
+**Problem** - *The tree is given. If exist path from root to leaf which sum gives targetSum?*  
+<img width="676" height="630" alt="image" src="https://github.com/user-attachments/assets/aada695e-f3ff-4611-b802-1919343be30b" />
+
+**Idea** - *We start from root and add value of the root node to the current sum. Use recursion we go down to the children and keep passing "current sum"+"current node's value". If we are on the leaf we check if current sum is equal to the target sum, if yes then we return upward - true*
+
+***Pseudocode***  
+<img width="649" height="269" alt="image" src="https://github.com/user-attachments/assets/770ca1ff-018a-4945-819b-e4d342e27671" />
+
+**Main ideas**  
+- Base case
+- Recursive traversal to the bottom
+- Handling the result
+
+**Key** - *understand what to pass to the child from the parent and how recursion occurs*
+
+**Time complexity - O(n), we read every node one time**  
+**Space complexity - O(h), where h - is the height of the tree**
+
+## Hint
+If we calculate answer from leafs to root => from bottom to top, else => from top to bottom, else ask 4 questions:
+- What is the base case of recursion?
+- What we do before traversing right/left sub-tree?
+- How to handle the result?
+- What we should return back to parent? 

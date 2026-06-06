@@ -690,3 +690,148 @@ If we calculate answer from leafs to root => from bottom to top, else => from to
 - What we do before traversing right/left sub-tree?
 - How to handle the result?
 - What we should return back to parent? 
+
+# Graphs
+## Theory re-cap
+**Oriented graph** - *graph where edges have directions, we can move only following directions*  
+**Not-oriented graph** - *grpah where edged don't have directions, we can move in both direction on the edge*  
+<img width="704" height="299" alt="image" src="https://github.com/user-attachments/assets/9fb8baa3-e0ec-4309-b5a2-8409c5757c77" />
+
+**Component** - *is the cycle of the several nodes*  
+<img width="1295" height="553" alt="image" src="https://github.com/user-attachments/assets/019980c0-b556-4997-823c-de03c9488a66" />
+
+**How to set edges?**  
+<img width="431" height="692" alt="image" src="https://github.com/user-attachments/assets/916d455c-24b2-4238-ade8-87aed2b665a1" />  
+Edges are set by the hash-set where key is the edge and value is array of neighbour edges
+
+**Build the graph from the given edges array**  
+<img width="661" height="345" alt="image" src="https://github.com/user-attachments/assets/6df10b86-2b89-4308-a98d-e07ee15eea8f" />
+
+**Fro not-oriented graph we add connection for both end of the edge. Look to the code below**  
+<img width="648" height="192" alt="image" src="https://github.com/user-attachments/assets/c1d58a96-ae89-4cec-add9-62017d85f266" />
+
+**Otherwise add just for one node**  
+<img width="709" height="168" alt="image" src="https://github.com/user-attachments/assets/72ce1c60-9f60-46cc-a96d-f2b2a2e9584b" />
+
+## Breadth-first-search
+***Example task***  
+**Problem** - *Find the shortest path from 5 to 1*  
+<img width="498" height="249" alt="image" src="https://github.com/user-attachments/assets/15426ce4-91e2-4ae8-be6a-db3fba8d26d3" />
+
+**Idea** - *We initialize the queue and put in there initial node(in queue we store the value of the node and distance between the node and initial node), next we set hash-set - visited, where we put visited nodes. We take the first element from queue and look to its neighbours, then we add each neighbour and calculate its distance from initial node, also we put this node into visitide hash-set. We stop untill we are on the target element.* 
+
+**Idea 1** - *We take first element from the queue and we work with it. We add its children, we calculate distance by summing dist of its parent plus 1.* 
+
+**Pseudocode**  
+<img width="707" height="298" alt="image" src="https://github.com/user-attachments/assets/d73886c3-7dfb-469b-a818-4864d9df41d6" />
+
+**Main ideas**  
+- Initialization. Put initial node into the queue.
+- Cyckly while queue is not empty
+- Get first element, also handling base case(in this current example is - we met finish node)
+- Go through every neighbour of the current node
+- If neighbour node is not visited put it into the visitied hash-set
+
+**Time complexity - O(n+m), where n is number of nodes and m is number of edges**  
+**Space complexity - O(n), where n is number of nodes**
+
+## Depth-first-search
+***Example task***  
+**Problem** - *Maze is given. Go from start to finish.*  
+<img width="768" height="667" alt="image" src="https://github.com/user-attachments/assets/37f05155-923a-4268-a7b5-a0a5b774df42" />
+
+**Idea of DFS** - *Algorithm chooses one branch and follows down it till the end, if target condition doesn't met it chooses another branch and follows down it too.*
+
+**Pseudocode**  
+<img width="1008" height="675" alt="image" src="https://github.com/user-attachments/assets/a014d96a-3693-4629-ac04-e45abd74b432" />
+
+**Main ideas**  
+- We initialize stack and visited hash-set with initial node
+- Cyckly until stack is not empty
+- Pop the element from the stack and handle it if it is the end
+- Walk through all the neighbours
+- Push neighbour into the stack(if it is not visited, if it is not a "wall", in other words if it meets the condition)
+
+**Idea of DFS and BFS** - *DFS works with stack and BFS works with queue*  
+
+**Time complexity - O(n+m), where n is number of nodes and m is number of edges**  
+**Space complexity - O(n), where n is number of nodes**
+
+## BFS vs DFS
+- Big O of time and space - for both algos Big O of time/space is the same
+- Actual space consumption - BFS actualy usually consump fewer space
+- BFS is more universal. BFS can find the shortest path, it can traverse the graph. DFS cannot find the shortest path
+- During the interview BFS is more valuable(I don't know if it is true or not)
+
+Author mentions that I would like to consider BFS if task for minimum or shortest path kind of stuff is given
+
+## Shortest path
+***Example task***  
+**Problem** - *Start and finish points are given. Find the shortest path between them.*  
+<img width="663" height="272" alt="image" src="https://github.com/user-attachments/assets/a192d143-6942-47f5-8559-308f4250ac20" />
+
+**Idea** - *We launch BFS from initial(start) point. We just need to properly think about condition of marking the node as visited.*  
+
+**Pseudocode**  
+<img width="877" height="736" alt="image" src="https://github.com/user-attachments/assets/55db1c99-f23c-4613-a622-80236c5a761d" />
+
+**Main idea**  
+- Set strating point
+- Handle the node
+- Traverse the neigbhours
+
+**Time complexity - O(n*m), even though we use BFS, Big O is m*n. Because we work with matrix with deminesion m*n**  
+**Space complexity - O(n*m)**
+
+**When to use?**  
+- When we need to find minimum number of nodes/edges or shortest path or recover the path
+
+## Finding binded components
+**Example task**  
+**Problem** - *Find number of binded components*  
+<img width="703" height="392" alt="image" src="https://github.com/user-attachments/assets/6b3e1909-e5c6-48fb-833a-bcf6c6841135" />
+
+**Idea** - *Step on each non-visited node and from each start BFS. BFS will stop once it visits all nodes in binded component, then we will need to start BFS in another component. Number of BFS launches will be equal to number of binded components*
+
+**Pseudocode**  
+<img width="623" height="253" alt="image" src="https://github.com/user-attachments/assets/ffb6026c-297e-49de-a99b-b792d3263537" />
+
+**Main ideas**  
+- Build the graph if needed
+- Create shared variables to store result of several BFS executions
+- Logic of launching BFS and handling the result
+
+**Time complexity - O(n+m)**  
+**Space complexity - O(n), since we don't store info about edges**
+
+***When to use?***  
+- Find number of binded components
+- Find component wich meets some condition(biggest/smallest component)
+
+## Sequence of dependencies (consider better naming)
+***Example task***  
+**Problem** - *Given several tasks where each one can be completed only if previous tasks are completed*  
+<img width="1280" height="593" alt="image" src="https://github.com/user-attachments/assets/4de4f375-3c30-4231-9762-39e156c6be16" />
+
+**Idea** - *We are dealing with topological task. We will solve it using Khan's algorithm. For each task we count indegree, count of tasks that should be done so we can do current task.
+So we put tasks that have indegree == 0 into the queue(very important note - we can push into the queue taks that have only 0 indegree). While queue is not empty we keep taking first element and put it into the result and not forget to solve to decrement indegree of dependent tasks. Once occur task with indegree 0 we put into the queue. At the end we compare if resulting array size is equal to the size of the given array, so we are sure that there were not cyclus*  
+
+**Pseudocode**  
+<img width="1198" height="547" alt="image" src="https://github.com/user-attachments/assets/ada189d4-9521-434a-afdf-847029b30c3b" />
+
+**Main ideas**  
+- Initialization
+- BFS (important part is to correctly traverse the neighbours)
+- Check if any cycles exist by comparing resulting's array size with given array's size (important part)
+
+**Time complexity - O(n+m)**  
+**Space complexity - O(n)**
+
+***When to use?***  
+- Check possible cycles in the graph
+- We need topological order
+
+## Hint
+Find shortest path and edges are not weighted => BFS, find shortest path and edges are weighted => another algo  
+Find cyclus or topological order => Sequence of dependencies  
+Else => Finding binded components

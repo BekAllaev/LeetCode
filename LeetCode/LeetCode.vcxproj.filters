@@ -62,5 +62,8 @@
     <ClInclude Include="XorTotals.h">
       <Filter>Source Files\Problems</Filter>
     </ClInclude>
+    <ClInclude Include="BinaryTreeInorderTraversal.h">
+      <Filter>Source Files\Problems</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

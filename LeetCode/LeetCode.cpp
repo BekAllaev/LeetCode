@@ -8,6 +8,7 @@
 #include "MergeSortedArrays.h"
 #include "BaseBallGame.h"
 #include "XorTotals.h"
+#include "SameTree.h"
 
 using namespace std;
 
@@ -97,8 +98,30 @@ int main()
 	//vector<string> operations = { "5", "-2", "4", "C", "D", "9", "+", "+" };
 	//baseBallGame.calPoints(operations);
 
-	XorTotals::Solution xorTotals;
+	//XorTotals::Solution xorTotals;
 
-	vector<int> nums = { 5,1,6 };
-	xorTotals.subsetXORSum(nums);
+	//vector<int> nums = { 5,1,6 };
+	//xorTotals.subsetXORSum(nums);
+
+	SameTree::Solution sameTreeSolution;
+
+	// Example 1: p = [1,2,3], q = [1,2,3]
+	//SameTree::TreeNode* p1 = new SameTree::TreeNode(1);
+	//p1->left = new SameTree::TreeNode(2);
+	//p1->right = new SameTree::TreeNode(3);
+
+	//SameTree::TreeNode* q1 = new SameTree::TreeNode(1);
+	//q1->left = new SameTree::TreeNode(2);
+	//q1->right = new SameTree::TreeNode(3);
+
+	//std::cout << "Example 1 - Are trees the same? " << (sameTreeSolution.isSameTree(p1, q1) ? "true" : "false") << std::endl;
+
+	// Example 2: Left tree has 1->left(2), Right tree has 1->right(2)
+	SameTree::TreeNode* p2 = new SameTree::TreeNode(1);
+	p2->left = new SameTree::TreeNode(2);
+
+	SameTree::TreeNode* q2 = new SameTree::TreeNode(1);
+	q2->right = new SameTree::TreeNode(2);
+
+	std::cout << "Example 2 - Are trees the same? " << (sameTreeSolution.isSameTree(p2, q2) ? "true" : "false") << std::endl;
 }

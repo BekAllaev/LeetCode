@@ -835,3 +835,64 @@ So we put tasks that have indegree == 0 into the queue(very important note - we 
 Find shortest path and edges are not weighted => BFS, find shortest path and edges are weighted => another algo  
 Find cyclus or topological order => Sequence of dependencies  
 Else => Finding binded components
+
+# Dynamic programming
+## One dimensional dynamic programming
+***Example task***  
+**Problem** - *Ladder is given. We need to find all possible combinations of way how we can reach the top of the ladder. You can step one by one or you can step up to two steps at some point and then go one by one*  
+<img width="947" height="658" alt="image" src="https://github.com/user-attachments/assets/517453c4-c0bb-49b0-b390-e530055f0be5" />
+
+**Idea** - *We set array with size of the number of steps given, every element of the array shows in how many ways we can reach this current step. Frist of all we handle several base cases - step number 0 and 1. We can reach step number 0 which is 1, since there is only way to be in step number 1 - 1. Then step number 1, for this one we will have 1 too, since there is only one way to step on to the step number 1, from 0 to 1. Then for each next step we keep summing elements of two previous steps until we go to last step number 5. Number of steps for this ladder will be the answer.*  
+
+**Pseudocode**  
+<img width="593" height="289" alt="image" src="https://github.com/user-attachments/assets/ec06ffbd-10d9-476c-aa46-b9ce56d19ae0" />
+
+**Main ideas**  
+- Initialization
+- Base cases of dynamic
+- Main logic of calculation all of the further results
+
+**Time complexity - O(n)**  
+**Space complexity - O(1)**
+
+***When to use?***  
+- One array is given and we need to find max/min but we cannot take all elements
+- We need to find "how many ways" or "how many variants of (something)"
+- Some target number is given or some nominals are given(for example how much does one step costs or something like this) and we need to find minimum number of steps (effort) to be done/taken (shit, this need to be re-thinked somehow...)
+- Find the longest sub-sequence which meets some condition
+
+## Multidemnsional dynamic programming
+***Example task***  
+**Problem** - *We have a bag with given capacity(let's say 6) and we have several items with weight and price given for each item. We should find combination that gives maximum value*  
+<img width="543" height="231" alt="image" src="https://github.com/user-attachments/assets/349d4be8-206e-45da-8ef2-861149521d11" />
+
+**Idea** - *So let's draw two dimensional array, where rows are items in the bag(not the exact item but the items, 2 means there are two items now in the bag) and columns are capacities of the bag. For example here element at [2,5] means the value of the first two items in the bag that has capacity 5. So how actually we calculated value for [2,5]? We take a look to the [1,5] but why? Because for bag with capacity 5 we already know that there fits item #1 (which weights 5 and gives value - 6). Can we add item two there?! No, we can't so we just add to the value from [1,5] zero, which make 6 + 0 = 6. Another way is to do combination of item #1 and item #2 but the only combination that fills the bag maximum is when there is only item #1 in the bag. Let's consider the case for [2,3]. We cannot put there item #1 since it won't fit there, so we put there only item #2. Once we put it there we left with capacity 0 and theoretically we can put there item #1. We know that value of the bag for item #1 for bag with capacity 0 lives in the [1,0], so take this value and add it to the 4(value 4 is because currently in the bag with capacity 3 is item #2)*  
+<img width="567" height="403" alt="image" src="https://github.com/user-attachments/assets/eaf013a6-36c4-4249-882c-91cc4cd7eb01" />
+
+**Final DP matrix**  
+<img width="520" height="353" alt="image" src="https://github.com/user-attachments/assets/41f9ce27-2838-4b99-87b9-ecd799fad44b" />
+
+**Pseudocode**  
+<img width="736" height="257" alt="image" src="https://github.com/user-attachments/assets/d3cab97d-6ad6-4107-9671-543d2a90da4a" />
+
+**Main ideas**  
+- Initialization
+- Base cases of DP
+- Calculation other cases of DP
+
+**Time complexity - O(n*w), in this current case n is the number of items and w is capacity of the bag but actually it is dimensions of the matrix**  
+**Space complexity - O(w)**
+
+***When to use?***  
+- Matrix is given, we should find optimal way or count number of path
+- Two strings are given. Compare or edit them
+- Pick items from the given list to meet the maxmimum value of items
+
+## Hint
+- Find all possible combinations => it is NOT a DP, IT IS "Backtracking problems"
+- Else if we need to remember the previous state => it is NOT a DP, another topic
+- One array is given and we should find max/min or number of combinations => one dimensional DP
+- Several arrays are given and we should find max/min or number of combinations => multi dimensional DP
+
+Sneakpeak on how to determine DP problem  
+<img width="513" height="392" alt="image" src="https://github.com/user-attachments/assets/7a1ecb92-0900-4510-932c-bd2db716193a" />

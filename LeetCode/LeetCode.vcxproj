@@ -138,6 +138,7 @@
     <ClInclude Include="LongestCommonPrefix.h" />
     <ClInclude Include="MergeSortedArrays.h" />
     <ClInclude Include="NumArray.h" />
+    <ClInclude Include="PascalTriangle.h" />
     <ClInclude Include="RemoveDuplicateFromSortedArray.h" />
     <ClInclude Include="RemoveElementArray.h" />
     <ClInclude Include="ReverseLinkedList.h" />

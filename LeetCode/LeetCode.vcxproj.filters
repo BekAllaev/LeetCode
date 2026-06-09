@@ -71,5 +71,8 @@
     <ClInclude Include="ClimbingStrairs.h">
       <Filter>Source Files\Problems</Filter>
     </ClInclude>
+    <ClInclude Include="PascalTriangle.h">
+      <Filter>Source Files\Problems</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

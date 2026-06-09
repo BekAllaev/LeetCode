@@ -68,5 +68,8 @@
     <ClInclude Include="SameTree.h">
       <Filter>Source Files\Problems</Filter>
     </ClInclude>
+    <ClInclude Include="ClimbingStrairs.h">
+      <Filter>Source Files\Problems</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

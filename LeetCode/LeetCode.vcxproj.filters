@@ -74,5 +74,8 @@
     <ClInclude Include="PascalTriangle.h">
       <Filter>Source Files\Problems</Filter>
     </ClInclude>
+    <ClInclude Include="Task28.h">
+      <Filter>Source Files\Problems</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

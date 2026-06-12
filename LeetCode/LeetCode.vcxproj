@@ -145,6 +145,7 @@
     <ClInclude Include="RomanToInteger.h" />
     <ClInclude Include="SameTree.h" />
     <ClInclude Include="SearchInsertPortion.h" />
+    <ClInclude Include="Task28.h" />
     <ClInclude Include="ValidParentheses.h" />
     <ClInclude Include="XorTotals.h" />
   </ItemGroup>

@@ -9,6 +9,7 @@
 #include "BaseBallGame.h"
 #include "XorTotals.h"
 #include "SameTree.h"
+#include "Task28.h"
 
 using namespace std;
 
@@ -103,7 +104,7 @@ int main()
 	//vector<int> nums = { 5,1,6 };
 	//xorTotals.subsetXORSum(nums);
 
-	SameTree::Solution sameTreeSolution;
+	//SameTree::Solution sameTreeSolution;
 
 	// Example 1: p = [1,2,3], q = [1,2,3]
 	//SameTree::TreeNode* p1 = new SameTree::TreeNode(1);
@@ -117,11 +118,34 @@ int main()
 	//std::cout << "Example 1 - Are trees the same? " << (sameTreeSolution.isSameTree(p1, q1) ? "true" : "false") << std::endl;
 
 	// Example 2: Left tree has 1->left(2), Right tree has 1->right(2)
-	SameTree::TreeNode* p2 = new SameTree::TreeNode(1);
-	p2->left = new SameTree::TreeNode(2);
+	//SameTree::TreeNode* p2 = new SameTree::TreeNode(1);
+	//p2->left = new SameTree::TreeNode(2);
 
-	SameTree::TreeNode* q2 = new SameTree::TreeNode(1);
-	q2->right = new SameTree::TreeNode(2);
+	//SameTree::TreeNode* q2 = new SameTree::TreeNode(1);
+	//q2->right = new SameTree::TreeNode(2);
 
-	std::cout << "Example 2 - Are trees the same? " << (sameTreeSolution.isSameTree(p2, q2) ? "true" : "false") << std::endl;
+	//std::cout << "Example 2 - Are trees the same? " << (sameTreeSolution.isSameTree(p2, q2) ? "true" : "false") << std::endl;
+
+	Solution task28Solution;
+
+	// Example 1: haystack = "sadbutsad", needle = "sad"
+	//std::cout << "Example 1 - Index: " << task28Solution.strStr("sadbutsad", "sad") << " (Expected: 0)" << std::endl;
+
+	//// Example 2: haystack = "leetcode", needle = "leeto"
+	//std::cout << "Example 2 - Index: " << task28Solution.strStr("leetcode", "leeto") << " (Expected: -1)" << std::endl;
+
+	//// Additional test cases
+	//std::cout << "Example 3 - Index: " << task28Solution.strStr("hello", "ll") << " (Expected: 2)" << std::endl;
+	//std::cout << "Example 4 - Index: " << task28Solution.strStr("aaaaa", "bba") << " (Expected: -1)" << std::endl;
+	//std::cout << "Example 6 - Index: " << task28Solution.strStr("a", "a") << " (Expected: 0)" << std::endl;
+
+	//std::cout << task28Solution.strStr("ssad", "sad") << std::endl;
+	//std::cout << task28Solution.strStr("sssad", "sad") << std::endl;
+	std::cout << task28Solution.strStr("ssssad", "sad") << std::endl;
+	//std::cout << task28Solution.strStr("ssssssssad", "sad") << std::endl;
+	//std::cout << task28Solution.strStr("sssssssssad", "sad") << std::endl;
+	//std::cout << task28Solution.strStr("ssssssssssad", "sad") << std::endl;
+	//std::cout << task28Solution.strStr("sssssssssssad", "sad") << std::endl;
+	//std::cout << task28Solution.strStr("mississippi", "issip") << std::endl;
+	//std::cout << task28Solution.strStr("mississippi", "issipi") << std::endl;
 }

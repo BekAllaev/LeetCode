@@ -136,9 +136,13 @@
     <ClInclude Include="ClimbingStrairs.h" />
     <ClInclude Include="LinkedListCycle.h" />
     <ClInclude Include="LongestCommonPrefix.h" />
+    <ClInclude Include="LongestHarmoniousSubsequence.h" />
+    <ClInclude Include="LongestHarmoniousSubsequenceTests.h" />
     <ClInclude Include="MergeSortedArrays.h" />
     <ClInclude Include="NumArray.h" />
     <ClInclude Include="PascalTriangle.h" />
+    <ClInclude Include="QuickSort.h" />
+    <ClInclude Include="QuickSortTests.h" />
     <ClInclude Include="RemoveDuplicateFromSortedArray.h" />
     <ClInclude Include="RemoveElementArray.h" />
     <ClInclude Include="ReverseLinkedList.h" />

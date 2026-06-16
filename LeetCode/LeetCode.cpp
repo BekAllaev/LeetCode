@@ -10,6 +10,8 @@
 #include "XorTotals.h"
 #include "SameTree.h"
 #include "Task28.h"
+#include "LongestHarmoniousSubsequenceTests.h"
+//#include "QuickSortTests.h"
 
 using namespace std;
 
@@ -126,7 +128,7 @@ int main()
 
 	//std::cout << "Example 2 - Are trees the same? " << (sameTreeSolution.isSameTree(p2, q2) ? "true" : "false") << std::endl;
 
-	Solution task28Solution;
+	//Solution task28Solution;
 
 	// Example 1: haystack = "sadbutsad", needle = "sad"
 	//std::cout << "Example 1 - Index: " << task28Solution.strStr("sadbutsad", "sad") << " (Expected: 0)" << std::endl;
@@ -141,11 +143,14 @@ int main()
 
 	//std::cout << task28Solution.strStr("ssad", "sad") << std::endl;
 	//std::cout << task28Solution.strStr("sssad", "sad") << std::endl;
-	std::cout << task28Solution.strStr("ssssad", "sad") << std::endl;
+	//std::cout << task28Solution.strStr("ssssad", "sad") << std::endl;
 	//std::cout << task28Solution.strStr("ssssssssad", "sad") << std::endl;
 	//std::cout << task28Solution.strStr("sssssssssad", "sad") << std::endl;
 	//std::cout << task28Solution.strStr("ssssssssssad", "sad") << std::endl;
 	//std::cout << task28Solution.strStr("sssssssssssad", "sad") << std::endl;
 	//std::cout << task28Solution.strStr("mississippi", "issip") << std::endl;
 	//std::cout << task28Solution.strStr("mississippi", "issipi") << std::endl;
+
+//QuickSortTests::runAllTests();
+	LongestHarmoniousSubsequenceTests::runAllTests();
 }

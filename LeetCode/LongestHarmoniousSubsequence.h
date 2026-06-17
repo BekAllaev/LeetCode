@@ -8,6 +8,7 @@ using namespace std;
 
 namespace LongestHarmoniousSubsequence {
 	// This solution runs plus-minus for the same time as the previous....
+	// This solution has O(n) time complexity
 	class Solution {
 	public:
 		int findLHS(vector<int>& nums) {
@@ -26,6 +27,7 @@ namespace LongestHarmoniousSubsequence {
 	};
 
 	//This solution works for 53ms and beats 55.22% solutions
+	// This solution has O(n*log(n)) time complexity because of quick sort
 	//class Solution {
 	//private:
 	//	int getPivotIndex(vector<int>& nums, int low, int high, int pivot) {

@@ -89,5 +89,11 @@
     <ClInclude Include="LongestHarmoniousSubsequenceTests.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="IntersectionOfTwoLinkedList.h">
+      <Filter>Source Files\Problems</Filter>
+    </ClInclude>
+    <ClInclude Include="IntersectionOfTwoLinkedListTests.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

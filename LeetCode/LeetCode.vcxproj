@@ -134,6 +134,8 @@
     <ClInclude Include="BaseBallGame.h" />
     <ClInclude Include="BinaryTreeInorderTraversal.h" />
     <ClInclude Include="ClimbingStrairs.h" />
+    <ClInclude Include="IntersectionOfTwoLinkedList.h" />
+    <ClInclude Include="IntersectionOfTwoLinkedListTests.h" />
     <ClInclude Include="LinkedListCycle.h" />
     <ClInclude Include="LongestCommonPrefix.h" />
     <ClInclude Include="LongestHarmoniousSubsequence.h" />

@@ -12,6 +12,7 @@
 #include "Task28.h"
 #include "LongestHarmoniousSubsequenceTests.h"
 //#include "QuickSortTests.h"
+#include "IntersectionOfTwoLinkedListTests.h"
 
 using namespace std;
 
@@ -152,5 +153,6 @@ int main()
 	//std::cout << task28Solution.strStr("mississippi", "issipi") << std::endl;
 
 //QuickSortTests::runAllTests();
-	LongestHarmoniousSubsequenceTests::runAllTests();
+	//LongestHarmoniousSubsequenceTests::runAllTests();
+	IntersectionOfTwoLinkedListTests::runAllTests();
 }

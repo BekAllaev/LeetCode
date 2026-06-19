@@ -1,10 +1,12 @@
 <Solution>
   <Configurations>
+    <Platform Name="Any CPU" />
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
   <Folder Name="/Solution Items/">
     <File Path="README.md" />
   </Folder>
+  <Project Path="LeetCode.CSharp/LeetCode.CSharp.csproj" Id="11a3a467-2bbd-466d-8f89-b8035ec7d29e" />
   <Project Path="LeetCode/LeetCode.vcxproj" Id="89f8f1c2-aae9-47ba-bad5-ba5c3f6f2194" />
 </Solution>

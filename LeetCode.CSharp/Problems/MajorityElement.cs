@@ -21,4 +21,27 @@ public class Solution
 
         return result;
     }
+
+    // This solution runs for 0ms, this is Boyer-Moore voting algorithm. Time complexity is O(n) and space complexity is O(1)
+    // Intuition behind this is that "current" have a vote and if current elemet is not the same that "current"'s vote is canceled. Since some number 
+    // appear more than n/2 times we are sure that other elements won't be able to close all "votes" of this majority element
+    /*
+    public int MajorityElement(int[] nums) 
+    {
+        int current = nums[0], counter = 1;
+
+        for (int i = 1; i < nums.Length; i++)
+        {
+            if (counter == 0)
+                current = nums[i];
+
+            if (nums[i] == current)
+                counter++;
+            else
+                counter--;
+        }
+
+        return current;
+    }
+    */
 }

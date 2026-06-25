@@ -1,18 +1,19 @@
-using System.Collections;
-
 namespace BinaryTreePreorderTraversal;
-  public class TreeNode {
-      public int val;
-      public TreeNode left;
-      public TreeNode right;
-     public TreeNode(int val=0, TreeNode left=null, TreeNode right=null) {
-         this.val = val;
-          this.left = left;
-          this.right = right;
-      }
-  }
- 
-public class Solution 
+
+public class TreeNode
+{
+    public int val;
+    public TreeNode left;
+    public TreeNode right;
+    public TreeNode(int val = 0, TreeNode left = null, TreeNode right = null)
+    {
+        this.val = val;
+        this.left = left;
+        this.right = right;
+    }
+}
+
+public class Solution
 {
     // This is iterrative solution that runs for 0ms. 
     // Time complexity is O(n) but here we don't have call stack, we work itteratively
@@ -32,7 +33,7 @@ public class Solution
 
             if (node.right is not null)
                 stack.Push(node.right);
-            
+
             if (node.left is not null)
                 stack.Push(node.left);
         }

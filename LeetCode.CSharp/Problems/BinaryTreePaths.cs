@@ -15,11 +15,16 @@ public class TreeNode
  
 public class Solution 
 {
+    // This algo runs for O(n^2) time complexity
     private void Dfs(TreeNode node, string path, IList<string> result)
     {
         if (node is null)
             return;
 
+        // Here is the reason why it this algorithm runs for O(n^2) time complexity
+        // Here occurs copying. For each itteration we copy previous string and adding to the new value
+        // So progresion of number of copying after all itteration is like this - 1, 2, 3, 4, 6, 7, 8..... n
+        // This arithmetic progression which's sum gives us n(n+1)/2 = O(n^2)
         path = string.IsNullOrWhiteSpace(path) ? $"{node.val}" : $"{path}->{node.val}";
 
         if (node.left is null && node.right is null)

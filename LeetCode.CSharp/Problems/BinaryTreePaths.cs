@@ -16,7 +16,7 @@ public class TreeNode
 public class Solution 
 {
     // This algo runs for O(n^2) time complexity
-    private void Dfs(TreeNode node, string path, IList<string> result)
+    private void Dfs(TreeNode? node, string path, IList<string> result)
     {
         if (node is null)
             return;

@@ -17,32 +17,21 @@ public class Solution
 {
     public bool IsSymmetric(TreeNode root)
     {
-        var leftStack = new Stack<TreeNode>();
-        var rightStack = new Stack<TreeNode>();
+        var stack = new Stack<(TreeNode?, TreeNode?)>();
 
-        leftStack.Push(root.left);
-        rightStack.Push(root.right);
+        stack.Push((root.left, root.right));
 
-        while (leftStack.Count > 0 || rightStack.Count > 0)
+        while (stack.Count > 0)
         {
-            var leftTmp = leftStack.Pop();
-            var rightTmp = rightStack.Pop();
+            var (leftTmp, rightTmp) = stack.Pop();
 
-            if (leftTmp is not null)
+            if (leftTmp is not null && rightTmp is not null)
             {
-                leftStack.Push(leftTmp.right ?? null);
-                leftStack.Push(leftTmp.left ?? null);
+                stack.Push((leftTmp?.right, rightTmp?.left));
+                stack.Push((leftTmp?.left, rightTmp?.right));
             }
 
-            if (rightTmp is not null)
-            {
-                rightStack.Push(rightTmp.left ?? null);
-                rightStack.Push(rightTmp.right ?? null);
-            }
-
-            if (leftTmp is null && rightTmp is null || leftTmp?.val == rightTmp?.val)
-                continue;
-            else
+            if (leftTmp?.val != rightTmp?.val)
                 return false;
         }
 

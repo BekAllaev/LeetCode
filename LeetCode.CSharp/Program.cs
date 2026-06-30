@@ -1,10 +1,8 @@
-﻿var p = new SameTree.TreeNode(
-	1,
-	new SameTree.TreeNode(2));
+﻿var n = 3;
+var trust = new int[][]
+{
+    new[] { 1, 2 },
+    new[] { 2, 3 }
+};
 
-var q = new SameTree.TreeNode(
-	1,
-	null,
-	new SameTree.TreeNode(2));
-
-Console.WriteLine(new SameTree.Solution().IsSameTree(p, q));
+Console.WriteLine(new FindTheTownJudge.Solution().FindJudge(n, trust));

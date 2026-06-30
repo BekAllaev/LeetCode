@@ -27,8 +27,8 @@ public class Solution
 
             if (leftTmp is not null && rightTmp is not null)
             {
-                stack.Push((leftTmp?.right, rightTmp?.left));
-                stack.Push((leftTmp?.left, rightTmp?.right));
+                stack.Push((leftTmp.right, rightTmp.left));
+                stack.Push((leftTmp.left, rightTmp.right));
             }
 
             if (leftTmp?.val != rightTmp?.val)

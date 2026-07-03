@@ -1,8 +1,3 @@
-﻿var n = 3;
-var trust = new int[][]
-{
-    new[] { 1, 2 },
-    new[] { 2, 3 }
-};
+﻿var obj = new MaxAvrSubArray.Solution();
 
-Console.WriteLine(new FindTheTownJudge.Solution().FindJudge(n, trust));
+var result = obj.FindMaxAverage(new int[] {0,1,1,3,3}, 4);

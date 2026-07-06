@@ -1,5 +1,5 @@
 ﻿var obj = new HappyNumber.Solution();
 
-var result = obj.IsHappy(123456);
+var result = obj.IsHappy(1);
 
 Console.WriteLine(result);

@@ -1,3 +1,5 @@
+namespace PascalTriangleII;
+
 public class Solution 
 {
     // Accepted solution that also runs for 0ms but uses less memory. Uses O(rowIndex) memeory.

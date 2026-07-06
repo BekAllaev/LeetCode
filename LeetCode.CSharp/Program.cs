@@ -1,3 +1,5 @@
-﻿var obj = new MaxAvrSubArray.Solution();
+﻿var obj = new HappyNumber.Solution();
 
-var result = obj.FindMaxAverage(new int[] {0,1,1,3,3}, 4);
+var result = obj.IsHappy(123456);
+
+Console.WriteLine(result);

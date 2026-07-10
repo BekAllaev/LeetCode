@@ -368,7 +368,7 @@ If we can separate items on "good" and "bad" then => Base binary search, else if
 **Idea** - *First we initialize array of -1's, size of this array is equal to the size of given array. We starting from the end(in other words we starting from the right) and put element on the stack. When we want to push item to stack we compare it with the top item of the stack, if the item that we want to push is smaller than the top item from the top of the stack we write top item from the stack into result array and push the new item. If the item that we want to push is bigger than the top item from the stack then we pop top item then we compare the item that we want to push with new top as we did above.*
 
 **Idea 2**  
-<img width="749" height="359" alt="image" src="https://github.com/user-attachments/assets/7ecc8be7-edd9-463c-bcac-cace9cd338f5" />
+<img width="749" height="359" alt="image" src="https://github.com/user-attachments/assets/7ecc8be7-edd9-463c-bcac-cace9cd338f5" />  
 We can see that on each step items in the stack are descending from top to bottom, that is why it is called monothonic stack. We have monothinic sequences stored in stack
 
 **Pseudocode**  

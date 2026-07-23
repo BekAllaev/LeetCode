@@ -1,69 +1,58 @@
 ﻿namespace PermutationInString;
 
+// Accepted solution that runs for 3ms
+// Time complexity - O(n + m). Space complexity - O(1)
 public class Solution
 {
-    public bool CheckInclusion(string s1, string s2)
-    {
-        var map = new Dictionary<char, int>();
-        var tmpMap = new Dictionary<char, int>();
+    private const int Alphabet = 26;
 
-        if (s1.Length > s2.Length)
+    public bool CheckInclusion(string pattern, string text)
+    {
+        if (pattern.Length > text.Length)
             return false;
 
-        foreach (var @char in s1)
-        {
-            if (map.ContainsKey(@char))
-                map[@char] = map[@char] + 1;
-            else
-                map.Add(@char, 1);
-        }
+        var diff = new int[26];
+        var zeros = Alphabet;
 
-        for (int i = 0; i < s1.Length; i++)
-        {
-            if (tmpMap.ContainsKey(s2[i]))
-                tmpMap[s2[i]] = tmpMap[s2[i]] + 1;
-            else
-                tmpMap.Add(s2[i], 1);
-        }
+        foreach (var c in pattern)
+            Apply(diff, c - 'a', -1, ref zeros);
 
-        var isAllZeros = GetIsAllZeros(map, tmpMap);
+        for (int i = 0; i < pattern.Length; i++)
+            Apply(diff, text[i] - 'a', +1, ref zeros);
 
-        for (int i = s1.Length; i < s2.Length; i++)
+        if (zeros == Alphabet)
+            return true;
+
+        for (int i = pattern.Length; i < text.Length; i++)
         {
-            if (isAllZeros)
+            Apply(diff, text[i - pattern.Length] - 'a', -1, ref zeros);
+            Apply(diff, text[i] - 'a', +1, ref zeros);
+
+            if (zeros == Alphabet)
                 return true;
-
-            tmpMap[s2[i - s1.Length]] = tmpMap[s2[i - s1.Length]] - 1;
-
-            if (tmpMap.ContainsKey(s2[i]))
-                tmpMap[s2[i]] = tmpMap[s2[i]] + 1;
-            else
-                tmpMap.Add(s2[i], 1);
-
-            isAllZeros = GetIsAllZeros(map, tmpMap);
         }
 
-        return isAllZeros;
+        return false;
     }
 
-    private bool GetIsAllZeros(Dictionary<char, int> map, Dictionary<char, int> tmpMap)
+    private void Apply(int[] diff, int index, int delta, ref int zeros)
     {
-        bool isAllZeros = true;
+        if (diff[index] == 0)
+            zeros--;
 
-        foreach (var (key, value) in map)
-            if ((tmpMap.ContainsKey(key) ? tmpMap[key] : 0) - map[key] != 0)
-                isAllZeros = false;
+        diff[index] += delta;
 
-        return isAllZeros;
+        if (diff[index] == 0)
+            zeros++;
     }
 }
 
+// Accepted solution that runs for 75ms
 //public class Solution
 //{
 //    public bool CheckInclusion(string s1, string s2)
 //    {
-//        var map = new Dictionary<char, int>();
-//        var tmpMap = new Dictionary<char, int>();
+//        var map = new Dictionary<char, (int, int)>();
 
 //        if (s1.Length > s2.Length)
 //            return false;
@@ -71,47 +60,54 @@ public class Solution
 //        foreach (var @char in s1)
 //        {
 //            if (map.ContainsKey(@char))
-//                map[@char] = map[@char] + 1;
+//                map[@char] = (map[@char].Item1 + 1, 0);
 //            else
-//                map.Add(@char, 1);
+//                map.Add(@char, (1, 0));
 //        }
+
+//        int matches = map.Count;
+//        int currentMatches = 0;
 
 //        for (int i = 0; i < s1.Length; i++)
 //        {
-//            if (tmpMap.ContainsKey(s2[i]))
-//                tmpMap[s2[i]] = tmpMap[s2[i]] + 1;
-//            else
-//                tmpMap.Add(s2[i], 1);
-//        }
+//            if (map.ContainsKey(s2[i]))
+//            {
+//                if (map[s2[i]].Item1 != map[s2[i]].Item2 && map[s2[i]].Item1 == map[s2[i]].Item2 + 1)
+//                    currentMatches++;
+//                else if (map[s2[i]].Item1 == map[s2[i]].Item2 && map[s2[i]].Item1 != map[s2[i]].Item2 + 1)
+//                    currentMatches--;
 
-//        var isAllZeros = GetIsAllZeros(map, tmpMap);
+//                map[s2[i]] = (map[s2[i]].Item1, map[s2[i]].Item2 + 1);
+//            }
+//        }
 
 //        for (int i = s1.Length; i < s2.Length; i++)
 //        {
-//            if (isAllZeros)
+//            if (matches == currentMatches)
 //                return true;
 
-//            tmpMap[s2[i - s1.Length]] = tmpMap[s2[i - s1.Length]] - 1;
+//            if (map.ContainsKey(s2[i - s1.Length]))
+//            {
+//                if (map[s2[i - s1.Length]].Item1 == map[s2[i - s1.Length]].Item2)
+//                    currentMatches--;
+//                else if (map[s2[i - s1.Length]].Item1 == map[s2[i - s1.Length]].Item2 - 1)
+//                    currentMatches++;
 
-//            if (tmpMap.ContainsKey(s2[i]))
-//                tmpMap[s2[i]] = tmpMap[s2[i]] + 1;
-//            else
-//                tmpMap.Add(s2[i], 1);
+//                map[s2[i - s1.Length]] = (map[s2[i - s1.Length]].Item1, map[s2[i - s1.Length]].Item2 - 1);
+//            }
 
-//            isAllZeros = GetIsAllZeros(map, tmpMap);
+//            if (map.ContainsKey(s2[i]))
+//            {
+//                if (map[s2[i]].Item1 != map[s2[i]].Item2 && map[s2[i]].Item1 == map[s2[i]].Item2 + 1)
+//                    currentMatches++;
+//                else if (map[s2[i]].Item1 == map[s2[i]].Item2)
+//                    currentMatches--;
+
+//                map[s2[i]] = (map[s2[i]].Item1, map[s2[i]].Item2 + 1);
+//            }
+
 //        }
 
-//        return isAllZeros;
-//    }
-
-//    private bool GetIsAllZeros(Dictionary<char, int> map, Dictionary<char, int> tmpMap)
-//    {
-//        bool isAllZeros = true;
-
-//        foreach (var (key, value) in map)
-//            if ((tmpMap.ContainsKey(key) ? tmpMap[key] : 0) - map[key] != 0)
-//                isAllZeros = false;
-
-//        return isAllZeros;
+//        return matches == currentMatches;
 //    }
 //}

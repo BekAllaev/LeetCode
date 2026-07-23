@@ -1,3 +1,5 @@
+using System.Numerics;
+
 namespace BinaryWatch;
 
 public class Solution 

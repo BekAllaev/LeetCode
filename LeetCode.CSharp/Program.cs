@@ -1,8 +1,5 @@
-﻿var obj = new PermutationInString.Solution();
+﻿var obj = new ContainerWithMostWater.Solution();
 
-//Console.WriteLine(obj.CheckInclusion("ab", "eidbaooo"));
-//Console.WriteLine(obj.CheckInclusion("ab", "eidboaooo"));
-//Console.WriteLine(obj.CheckInclusion("adc", "dcda"));
-//Console.WriteLine(obj.CheckInclusion("hello", "ooolleoooleh"));
-//Console.WriteLine(obj.CheckInclusion("a", "ab"));
-Console.WriteLine(obj.CheckInclusion("abc", "bbbca"));
+Console.WriteLine(obj.MaxArea([1, 1]));
+Console.WriteLine(obj.MaxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]));
+Console.WriteLine(obj.MaxArea([1, 2, 1]));

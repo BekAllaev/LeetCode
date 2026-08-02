@@ -15,6 +15,9 @@
             // One mistake that I've made is - I marked the cell as visited when I did dequeue
             // as a result I did in dequeue I had several duplicate items.
             // So in BFS you should mark cell as visited once it get enqueued so there won't be duplicates.
+
+            // Another thing that I forgot about was that if you can run algo in the first run to find all lands and run algo again and it won't double 
+            // time complexity
             int[,] visited = new int[grid.Length, grid.Length];
             Queue<(int x, int y, int distance)> queue = GetLands(grid, visited);
             int max = -1, gridSize = grid.Length * grid.Length;

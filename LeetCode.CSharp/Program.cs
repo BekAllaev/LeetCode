@@ -1,4 +1,5 @@
-﻿var obj = new SubarraySumEqualsK.Solution();
+﻿var obj = new ContigousArray.Solution();
 
-Console.WriteLine(obj.SubarraySum([1, 1, 1], 2));
-Console.WriteLine(obj.SubarraySum([1], 0));
+Console.WriteLine(obj.FindMaxLength([0, 1]));
+Console.WriteLine(obj.FindMaxLength([0, 1, 1, 1, 1, 1, 0, 0, 0]));
+

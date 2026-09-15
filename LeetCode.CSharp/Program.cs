@@ -1,3 +1,8 @@
-﻿var obj = new MinimumSizeSubarraySum.Solution();
+﻿var obj = new LongestRepeatingCharacterReplacement.Solution();
 
-Console.WriteLine(obj.MinSubArrayLen(7, [2, 3, 1, 2, 4, 3]));
+//Console.WriteLine(obj.CharacterReplacement("ABAB", 2));
+//Console.WriteLine(obj.CharacterReplacement("AABABBA", 1));
+//Console.WriteLine(obj.CharacterReplacement("ABCDE", 1));
+
+//Console.WriteLine(obj.CharacterReplacementWithMap("ABAB", 2));
+Console.WriteLine(obj.CharacterReplacementWithMap("AABABBA", 1));

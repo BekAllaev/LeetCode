@@ -1,8 +1,4 @@
-﻿var obj = new LongestRepeatingCharacterReplacement.Solution();
+﻿var obj = new MaxConsecutiveOnesIII.Solution();
 
-//Console.WriteLine(obj.CharacterReplacement("ABAB", 2));
-//Console.WriteLine(obj.CharacterReplacement("AABABBA", 1));
-//Console.WriteLine(obj.CharacterReplacement("ABCDE", 1));
-
-//Console.WriteLine(obj.CharacterReplacementWithMap("ABAB", 2));
-Console.WriteLine(obj.CharacterReplacementWithMap("AABABBA", 1));
+Console.WriteLine(obj.LongestOnes([1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0], 2));
+Console.WriteLine(obj.LongestOnes([0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1], 3));

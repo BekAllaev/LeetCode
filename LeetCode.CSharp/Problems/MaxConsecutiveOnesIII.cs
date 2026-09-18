@@ -30,7 +30,7 @@ public class Solution
     // SC - O(1)
     public int LongestOnes(int[] nums, int k)
     {
-        int left = 0, right = 0, distance = 0, zeros = 0;
+        int left = 0, right = -1, distance = 0, zeros = 0;
 
         while (left < nums.Length)
         {

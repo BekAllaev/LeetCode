@@ -1,0 +1,46 @@
+﻿namespace Task19;
+
+public class ListNode
+{
+    public int val;
+    public ListNode? next;
+    public ListNode(int val = 0, ListNode? next = null)
+    {
+        this.val = val;
+        this.next = next;
+    }
+}
+
+public class Solution
+{
+    // Accepted solution for 0ms
+    // TC - O(n)
+    // SC - O(1)
+    public ListNode? RemoveNthFromEnd(ListNode head, int n)
+    {
+        ListNode? cur = head;
+        ListNode dummy = new ListNode();
+        int counter = 0;
+
+        while (cur is not null)
+        {
+            cur = cur.next;
+            counter++;
+        }
+
+        var rm = counter - n - 1;
+        
+        dummy.next = head;
+        cur = dummy;
+
+        for (int i = -1; cur is not null; i++)
+        {
+            if (rm == i)
+                cur.next = cur.next?.next;
+
+            cur = cur.next;
+        }
+
+        return dummy.next;
+    }
+}

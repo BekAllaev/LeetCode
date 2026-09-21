@@ -1,4 +1,9 @@
-﻿var obj = new Task1493.Solution();
+﻿using Task19;
 
-Console.WriteLine(obj.LongestSubarray([1, 1, 0, 1]));
-Console.WriteLine(obj.LongestSubarray([0, 1, 1, 1, 0, 1, 1, 0, 1]));
+var obj = new Task19.Solution();
+
+//ListNode node = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))));
+//ListNode node = new ListNode(1, new ListNode(2));
+ListNode node = new ListNode(1);
+
+obj.RemoveNthFromEnd(node, 1);

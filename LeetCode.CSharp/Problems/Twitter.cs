@@ -1,5 +1,122 @@
 ﻿namespace LeetCode.CSharp.Problems;
 
+// Accepted solution that runs for 13ms
+public class Twitter
+{
+    int postCount = 0;
+    HashSet<int>[] network = new HashSet<int>[500];
+    LinkedList<(int tweetId, int postCount, int authorId)>[] usersFeed = new LinkedList<(int tweetId, int postCount, int authorId)>[500];
+    LinkedList<(int tweetId, int postCount, int authroId)>[] usersTweets = new LinkedList<(int tweetId, int postCount, int authorId)>[500];
+
+    public Twitter() { }
+
+    public void PostTweet(int userId, int tweetId)
+    {
+        postCount++;
+        UpdateFeed(userId, tweetId, postCount, userId);
+        AddTweet(userId, tweetId, postCount);
+
+        var followers = network[userId];
+
+        if (followers is null)
+            return;
+
+        foreach (var follower in followers)
+        {
+            UpdateFeed(follower, tweetId, postCount, userId);
+        }
+    }
+
+    public IList<int> GetNewsFeed(int userId)
+        => usersFeed[userId] is not null ? usersFeed[userId].Take(10).Select(x => x.Item1).ToList() : new List<int>();
+
+    public void Follow(int followerId, int followeeId)
+    {
+        var followers = network[followeeId] ??= new HashSet<int>();
+        var followeeTweets = usersTweets[followeeId];
+
+        if (followers.Contains(followerId))
+            return;
+
+        followers.Add(followerId);
+
+        var userFeed = usersFeed[followerId] ??= new LinkedList<(int tweetId, int postCount, int authorId)>();
+
+        if (followeeTweets is not null)
+            MergeIntoFollowerFeed(usersFeed[followerId], followeeTweets);
+    }
+
+    public void Unfollow(int followerId, int followeeId)
+    {
+        var followers = network[followeeId];
+        var followerFeed = usersFeed[followerId];
+
+        if (followers is null || followerFeed is null)
+            return;
+
+        followers.Remove(followerId);
+
+        var cur = followerFeed.First;
+        while (cur is not null)
+        {
+            var next = cur.Next;
+            if (cur.Value.authorId == followeeId)
+                followerFeed.Remove(cur);
+            cur = next;
+        }
+    }
+
+    private void UpdateFeed(int userId, int tweetId, int postCount, int authorId)
+    {
+        var userFeed = usersFeed[userId] ??= new LinkedList<(int tweetId, int postCount, int authorId)>();
+
+        var cur = userFeed.First;
+        while (cur is not null)
+        {
+            if (cur.Value.Item2 > postCount)
+                cur = cur.Next;
+            else break;
+        }
+
+        if (cur is not null)
+            userFeed.AddBefore(cur, (tweetId, postCount, authorId));
+        else
+            userFeed.AddLast((tweetId, postCount, authorId));
+    }
+
+    private void AddTweet(int userId, int tweetId, int postCount)
+    {
+        var userTweets = usersTweets[userId] ??= new LinkedList<(int tweetId, int postCount, int authroId)>();
+
+        userTweets.AddFirst((tweetId, postCount, userId));
+    }
+
+    private void MergeIntoFollowerFeed(LinkedList<(int, int, int)> followerFeed, LinkedList<(int, int, int)> followeeTweets)
+    {
+        var first = followerFeed.First;
+        var second = followeeTweets.First;
+
+        while (first is not null && second is not null)
+        {
+            if (second.Value.Item2 > first.Value.Item2)
+            {
+                followerFeed.AddBefore(first, second.Value);
+                second = second.Next;
+            }
+            else
+                first = first.Next;
+        }
+
+        while (second is not null)
+        {
+            followerFeed.AddLast(second.Value);
+            second = second.Next;
+        }
+    }
+}
+
+// Accepted solution that runs for 700ms
+/*
 public class Twitter
 {
     int postCount = 0;
@@ -96,11 +213,6 @@ public class Twitter
             else
                 userFeed.AddFirst((tweetId, postCount));
         }
-
-        /*
-        if (userFeed.Count > 10)
-            userFeed.RemoveLast();
-        */
     }
 
     private void AddTweet(int userId, int tweetId, int postCount)
@@ -116,6 +228,7 @@ public class Twitter
         userTweets.AddFirst((tweetId, postCount));
     }
 }
+*/
 
 /**
  * Your Twitter object will be instantiated and called as such:

@@ -1,4 +1,3 @@
-﻿var obj = new RemoveDuplicateLetters.Solution();
+﻿var obj = new RemoveKDigits.Solution();
 
-Console.WriteLine(obj.RemoveDuplicateLetters("bcabdc"));
-Console.WriteLine(obj.RemoveDuplicateLetters("cbacdcbc"));
+obj.RemoveKdigits("33526221184202197273", 19);

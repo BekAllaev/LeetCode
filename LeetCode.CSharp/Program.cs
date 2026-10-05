@@ -1,4 +1,4 @@
-﻿var obj = new Task1673.Solution();
+﻿var obj = new CreateMaximumNumber.Solution();
 
-var result1 = obj.MostCompetitive([3, 5, 2, 6], 2);
-var result2 = obj.MostCompetitive([2, 4, 3, 3, 5, 4, 9, 6], 4);
+var result1 = obj.MaxNumber([3, 4, 6, 5], [9, 1, 2, 5, 8, 3], 5);
+var result2 = obj.MaxNumber([3, 9], [8, 9], 3);

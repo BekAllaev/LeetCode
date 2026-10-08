@@ -1,4 +1,3 @@
-﻿var obj = new CreateMaximumNumber.Solution();
+﻿var obj = new Task2574.Solution();
 
-var result1 = obj.MaxNumber([3, 4, 6, 5], [9, 1, 2, 5, 8, 3], 5);
-var result2 = obj.MaxNumber([3, 9], [8, 9], 3);
+obj.LeftRightDifference([10, 4, 8, 3]);

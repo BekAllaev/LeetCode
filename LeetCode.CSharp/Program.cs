@@ -1,3 +1,4 @@
-﻿var obj = new Task2574.Solution();
+﻿var obj = new Task1769.Solution();
 
-obj.LeftRightDifference([10, 4, 8, 3]);
+obj.MinOperations("110");
+obj.MinOperations("001011");

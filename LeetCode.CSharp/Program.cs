@@ -1,4 +1,4 @@
-﻿var obj = new Task1769.Solution();
+﻿var obj = new Task1071.Solution();
 
-obj.MinOperations("110");
-obj.MinOperations("001011");
+//Console.WriteLine(obj.GcdOfStrings("ABCABC", "ABC"));
+Console.WriteLine(obj.GcdOfStrings("ABABAB", "ABAB"));
